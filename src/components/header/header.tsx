@@ -10,7 +10,7 @@ import Social from '../social/social';
 export default function Header() {
   return (
     <div>
-      <header className='max-2xl:w-[1302px] flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline'>
+      <header className='min-w-[1302px] flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline'>
         <Logo />
         <Address />
         <Social />
