@@ -6,7 +6,7 @@ export default function Currency() {
       <Select
         name='currency'
         aria-label='Project currency'
-        className='bg-inherit w-16 h-12'
+        className='bg-inherit w-16 h-12 '
       >
         <option value='active'>BYN</option>
         <option value='paused'>USD</option>

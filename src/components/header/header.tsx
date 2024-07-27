@@ -8,11 +8,11 @@ import Social from '../social/social';
 
 export default function Header() {
   return (
-    <header className='w-11/12 flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline'>
+    <header className='max-2xl:w-[1302px] flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline'>
       <Logo />
       <Address />
       <Social />
-      <Phone />
+      <Phone footer={false} />
       <Call />
       <Sale />
       <Currency />

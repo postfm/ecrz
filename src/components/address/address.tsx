@@ -11,9 +11,9 @@ export default function Address() {
         alt='Маркер карты'
       />
       <div className='flex flex-col ml-3'>
-        <p className='font-normal text-sm'>Брест, ул. Гоголя 2, офис 1</p>
+        <p className='text-sm text-nowrap'>Брест, ул. Гоголя 2, офис 1</p>
         <a
-          className='font-medium text-sm text-sky-400'
+          className='font-medium text-sm hover:text-sky-600'
           href='#'
         >
           Посмотреть на карте
