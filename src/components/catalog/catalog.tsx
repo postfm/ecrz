@@ -17,7 +17,7 @@ export default function Catalog() {
         className='font-medium text-sm hover:text-sky-600'
         href=''
       >
-        О компани
+        О компании
       </a>
     </div>
   );

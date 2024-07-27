@@ -4,10 +4,9 @@ import Header from '@/components/header/header';
 
 export default function Home() {
   return (
-    <>
+    <main className='flex flex-col justify-between items-center h-screen'>
       <Header />
-      <Catalog />
       <Footer />
-    </>
+    </main>
   );
 }

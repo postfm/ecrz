@@ -17,9 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='ru'>
-      <body className={`${onest.className} flex flex-col justify-between items-center h-screen`}>
-        {children}
-      </body>
+      <body className={onest.className}>{children}</body>
     </html>
   );
 }

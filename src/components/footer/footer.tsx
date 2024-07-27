@@ -216,7 +216,7 @@ export default function Footer() {
           className='font-medium text-sm hover:text-sky-600 mb-6'
           href=''
         >
-          О компани
+          О компании
         </a>
         <a
           className='font-medium text-sm hover:text-sky-600 mb-6'
