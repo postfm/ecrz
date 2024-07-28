@@ -1,5 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/16/solid';
+import Link from 'next/link';
 import React from 'react';
 
 export default function Houses() {
@@ -14,28 +15,28 @@ export default function Houses() {
         className='bg-white shadow-3xl rounded-md'
       >
         <MenuItem>
-          <a
+          <Link
             className='block pt-3 pr-4 pb-3 pl-4'
-            href=''
+            href='/houses'
           >
             Дома
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <a
+          <Link
             className='block pt-3 pr-4 pb-3 pl-4'
-            href=''
+            href='/houses'
           >
             Часть дома
-          </a>
+          </Link>
         </MenuItem>
         <MenuItem>
-          <a
+          <Link
             className='block pt-3 pr-4 pb-3 pl-4'
-            href='/license'
+            href='/houses'
           >
             Дачи
-          </a>
+          </Link>
         </MenuItem>
       </MenuItems>
     </Menu>
