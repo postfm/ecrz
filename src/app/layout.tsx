@@ -21,9 +21,11 @@ export default function RootLayout({
     <html lang='ru'>
       <body className={onest.className}>
         <main className='flex flex-col justify-between items-center h-screen'>
-          <Header />
-          {children}
-          <Footer />
+          <div className='w-[1366px] mx-auto'>
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </main>
       </body>
     </html>
