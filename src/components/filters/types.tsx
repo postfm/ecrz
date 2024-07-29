@@ -1,29 +1,40 @@
 'use client';
 
-import { ChevronDownIcon } from '@heroicons/react/16/solid';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/16/solid';
 import React, { useState } from 'react';
 import { useOutsideClick } from './../../hooks/use-outside-click';
 
 export default function Types() {
   const [status, setStatus] = useState(false);
   const [type, setType] = useState('Квартиры');
-  const outsideClick = useOutsideClick(() => setStatus(!status));
+  const outsideClick = useOutsideClick(() => {
+    status ? setStatus(!status) : setStatus(false);
+  });
 
   return (
-    <div className='relative'>
+    <div
+      className='relative'
+      ref={outsideClick}
+    >
       <div className='border-r-2'>
         <button
           className='inline-flex items-center justify-between gap-2 font-medium hover:text-sky-600 p-6 w-60'
-          onClick={() => setStatus(!status)}
-          ref={outsideClick}
+          onClick={() => {
+            setStatus(!status);
+          }}
         >
           <div className='flex flex-col items-start'>
-            <p className={`font-normal text-xs ${status ? 'text-blue-400' : 'text-gray-500'} mb-2`}>
+            <p className={`font-normal text-xs ${status ? 'text-blue-500' : 'text-gray-500'} mb-2`}>
               Тип
             </p>
             {status ? '' : type}
           </div>
-          <ChevronDownIcon className='size-4 fill-gray-400' />
+
+          {status ? (
+            <ChevronUpIcon className='size-4 fill-gray-400' />
+          ) : (
+            <ChevronDownIcon className='size-4 fill-gray-400' />
+          )}
         </button>
       </div>
       <div

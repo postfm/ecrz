@@ -7,7 +7,7 @@ import Buttons from './buttons';
 
 export default function Filters() {
   return (
-    <div className='flex mb-4 bg-white'>
+    <div className='flex mb-4 bg-white rounded'>
       <Types />
       <Rooms />
       <Area />
