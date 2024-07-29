@@ -9,8 +9,8 @@ import Social from '../social/social';
 
 export default function Header() {
   return (
-    <div>
-      <header className='w-full flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline'>
+    <div className='pl-8 pr-8 bg-white'>
+      <header className='w-full flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline '>
         <Logo />
         <Address />
         <Social />

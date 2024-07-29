@@ -3,5 +3,5 @@ export default function ApartamentsLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <section>{children}</section>;
+  return <section className='w-full p-8'>{children}</section>;
 }

@@ -20,12 +20,10 @@ export default function RootLayout({
   return (
     <html lang='ru'>
       <body className={onest.className}>
-        <main className='flex flex-col justify-between items-center h-screen'>
-          <div className='w-[1366px] mx-auto'>
-            <Header />
-            {children}
-            <Footer />
-          </div>
+        <main className='w-[1366px] mx-auto'>
+          <Header />
+          {children}
+          <Footer />
         </main>
       </body>
     </html>
