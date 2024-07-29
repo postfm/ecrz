@@ -7,7 +7,7 @@ import { useOutsideClick } from './../../hooks/use-outside-click';
 export default function Types() {
   const [status, setStatus] = useState(false);
   const [type, setType] = useState('Квартиры');
-  const outsideClick = useOutsideClick(() => {
+  const outsideClick = useOutsideClick<HTMLDivElement>(() => {
     status ? setStatus(!status) : setStatus(false);
   });
 
