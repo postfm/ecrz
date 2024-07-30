@@ -23,12 +23,16 @@ export default function Types() {
             setStatus(!status);
           }}
         >
-          <div className='flex flex-col items-start'>
-            <p className={`font-normal text-xs ${status ? 'text-blue-500' : 'text-gray-500'} mb-2`}>
+          {status ? (
+            <div className='flex flex-col items-start h-12 justify-center font-normal text-sm text-blue-500'>
               Тип
-            </p>
-            {status ? '' : type}
-          </div>
+            </div>
+          ) : (
+            <div className='flex flex-col items-start'>
+              <p className='font-normal text-xs text-gray-500 mb-2'>Тип</p>
+              {type}
+            </div>
+          )}
 
           {status ? (
             <ChevronUpIcon className='size-4 fill-gray-400' />
