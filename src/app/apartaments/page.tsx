@@ -3,17 +3,18 @@ import Link from 'next/link';
 import sort from './../../../public/Sort.svg';
 import Image from 'next/image';
 import Filters from '@/components/filters/filters';
+import { RentalType } from '@/types';
+import { getFilters } from '@/api/getFilters';
 
-export default function Page() {
+export default async function Page() {
+  const filters = await getFilters(RentalType.Apartment);
+
   return (
     <>
       <div className='pt-5 mb-4'>
         <div className='font-normal text-sm mb-4'>
           <Link href={'/'}>Главная</Link> /{' '}
-          <Link
-            href={'/apartaments'}
-            className='text-gray-500'
-          >
+          <Link href={'/apartaments'} className='text-gray-500'>
             Купить 1-комнатную квартиру
           </Link>
         </div>
@@ -37,10 +38,7 @@ export default function Page() {
               aria-label='Sorting items'
               className='bg-inherit w-auto font-medium text-sm hover:text-sky-600'
             >
-              <option
-                value='price'
-                className='hover:text-black'
-              >
+              <option value='price' className='hover:text-black'>
                 Сначала дорогие
               </option>
               <option value='-price'>Сначала дешевые</option>
@@ -50,7 +48,7 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <Filters />
+      <Filters filters={filters} />
     </>
   );
 }
