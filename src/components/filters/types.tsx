@@ -5,13 +5,10 @@ import React, { useState } from 'react';
 import { useOutsideClick } from './../../hooks/use-outside-click';
 import { RentalType } from '@/types';
 
-interface TypesProps {
-  type: RentalType;
-  changeType: (type: RentalType) => void;
-}
-
-export default function Types({ type, changeType }: TypesProps) {
+export default function Types() {
   const [status, setStatus] = useState(false);
+  const [type, setType] = useState(RentalType.Apartment);
+
   const outsideClick = useOutsideClick<HTMLDivElement>(() => {
     status ? setStatus(!status) : setStatus(false);
   });
@@ -54,7 +51,7 @@ export default function Types({ type, changeType }: TypesProps) {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            changeType(RentalType.Apartment);
+            setType(RentalType.Apartment);
             setStatus(!status);
           }}
         >
@@ -63,7 +60,7 @@ export default function Types({ type, changeType }: TypesProps) {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            changeType(RentalType.House);
+            setType(RentalType.House);
             setStatus(!status);
           }}
         >
@@ -72,7 +69,7 @@ export default function Types({ type, changeType }: TypesProps) {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            changeType(RentalType.Garden);
+            setType(RentalType.Garden);
 
             setStatus(!status);
           }}
@@ -82,7 +79,7 @@ export default function Types({ type, changeType }: TypesProps) {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            changeType(RentalType.Commercial);
+            setType(RentalType.Commercial);
             setStatus(!status);
           }}
         >
