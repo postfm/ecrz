@@ -12,26 +12,23 @@ interface RangeFilterProps {
   onSubmit: (filterKey: string, min?: number, max?: number) => void;
 }
 
-export default function RangeFilterComponent({
-  filterProps,
-  unit,
-  onSubmit,
-}: RangeFilterProps) {
+export default function RangeFilterComponent({ filterProps, unit, onSubmit }: RangeFilterProps) {
   const { ref, isOpen, toggle } = usePopupMenu<HTMLDivElement>();
 
   const [minValue, setMinValue] = useState<number>();
   const [maxValue, setMaxValue] = useState<number>();
 
   return (
-    <div className='relative' ref={ref}>
+    <div
+      className='relative'
+      ref={ref}
+    >
       <div className='border-r-2'>
         <button
           className='inline-flex items-center justify-between gap-2 font-medium hover:text-sky-600 p-6 w-60'
           onClick={toggle}
         >
-          {isOpen ||
-          (typeof minValue === 'undefined' &&
-            typeof maxValue === 'undefined') ? (
+          {isOpen || (typeof minValue === 'undefined' && typeof maxValue === 'undefined') ? (
             <div
               className={`flex flex-col items-start h-12 justify-center font-normal text-sm ${
                 isOpen ? 'text-blue-500' : 'text-black'
@@ -41,14 +38,10 @@ export default function RangeFilterComponent({
             </div>
           ) : (
             <div className='flex flex-col items-start'>
-              <p className='font-normal text-xs text-gray-500 mb-2'>
-                {filterProps.name}
-              </p>
+              <p className='font-normal text-xs text-gray-500 mb-2'>{filterProps.name}</p>
               <div className='flex'>
                 {minValue} - {maxValue}
-                <span className='font-medium text-base text-gray-500 ml-2'>
-                  {unit}
-                </span>
+                <span className='font-medium text-base text-gray-500 ml-2'>{unit}</span>
               </div>
             </div>
           )}
@@ -69,7 +62,7 @@ export default function RangeFilterComponent({
           <fieldset className='flex gap-2 border-b-2 p-6 pb-6'>
             <label className='group relative'>
               <Input
-                className='peer w-40 h-14 rounded border-gray-500 border p-4 font-normal text-sm data-[focus]:outline-none data-[active]:outline-none data-[hover]:outline-none'
+                className='peer w-40 h-14 rounded border-gray-500 border p-4 font-normal text-sm data-[focus]:outline-none data-[active]:outline-none data-[hover]:outline-none remove-arrow'
                 type='number'
                 pattern='[0-9\s]'
                 value={minValue}
@@ -91,7 +84,7 @@ export default function RangeFilterComponent({
             </label>
             <label className='relative'>
               <Input
-                className='peer w-40 h-14 rounded border-gray-500 border p-4 font-normal text-sm data-[focus]:outline-none data-[active]:outline-none data-[hover]:outline-none'
+                className='peer w-40 h-14 rounded border-gray-500 border p-4 font-normal text-sm data-[focus]:outline-none data-[active]:outline-none data-[hover]:outline-none remove-arrow'
                 type='number'
                 value={maxValue}
                 pattern='[0-9\s]'
@@ -120,6 +113,7 @@ export default function RangeFilterComponent({
               onClick={() => {
                 setMaxValue(undefined);
                 setMinValue(undefined);
+                console.log(maxValue);
               }}
             />
             <Input
@@ -129,6 +123,7 @@ export default function RangeFilterComponent({
               onClick={(evt) => {
                 evt.preventDefault();
                 onSubmit(filterProps.name, minValue, maxValue);
+                toggle();
               }}
             />
           </fieldset>

@@ -11,10 +11,7 @@ interface ChoiceFilterProps {
   onSubmit: (filterKey: string, selectedOptions: string[]) => void;
 }
 
-export default function ChoiceFilterComponent({
-  filterProps,
-  onSubmit,
-}: ChoiceFilterProps) {
+export default function ChoiceFilterComponent({ filterProps, onSubmit }: ChoiceFilterProps) {
   const [selectedChoiceKeys, setSelectedChoiceKeys] = useState<string[]>([]);
   const { ref, isOpen, toggle } = usePopupMenu<HTMLDivElement>();
 
@@ -34,21 +31,26 @@ export default function ChoiceFilterComponent({
   }
 
   return (
-    <div className='relative' ref={ref}>
+    <div
+      className='relative'
+      ref={ref}
+    >
       <div className='border-r-2'>
         <button
           className='inline-flex items-center justify-between gap-2 font-medium hover:text-sky-600 p-6 w-60'
           onClick={toggle}
         >
-          {isOpen ? (
-            <div className='flex flex-col items-start h-12 justify-center font-normal text-sm text-blue-500'>
+          {isOpen || selectedChoiceKeys.length <= 0 ? (
+            <div
+              className={`flex flex-col items-start h-12 justify-center font-normal text-sm ${
+                isOpen ? 'text-blue-500' : 'text-black'
+              }`}
+            >
               {filterProps.name}
             </div>
           ) : (
             <div className='flex flex-col items-start'>
-              <p className='font-normal text-xs text-gray-500 mb-2'>
-                {filterProps.name}
-              </p>
+              <p className='font-normal text-xs text-gray-500 mb-2'>{filterProps.name}</p>
               {renderSelectedChoices()}
             </div>
           )}
