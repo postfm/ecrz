@@ -5,8 +5,11 @@ import Image from 'next/image';
 import Filters from '@/components/filters/filters';
 import { RentalType } from '@/types';
 import { getFilters } from '@/api/getFilters';
+import { useState } from 'react';
 
 export default async function Page() {
+  const [type, setType] = useState(RentalType.Apartment);
+
   const filters = await getFilters(RentalType.House);
 
   return (
@@ -54,7 +57,11 @@ export default async function Page() {
           </div>
         </div>
       </div>
-      <Filters filters={filters} />
+      <Filters
+        filters={filters}
+        type={type}
+        changeType={() => setType(type)}
+      />
     </>
   );
 }

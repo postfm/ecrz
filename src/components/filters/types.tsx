@@ -3,10 +3,15 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/16/solid';
 import React, { useState } from 'react';
 import { useOutsideClick } from './../../hooks/use-outside-click';
+import { RentalType } from '@/types';
 
-export default function Types() {
+interface TypesProps {
+  type: RentalType;
+  changeType: (type: RentalType) => void;
+}
+
+export default function Types({ type, changeType }: TypesProps) {
   const [status, setStatus] = useState(false);
-  const [type, setType] = useState('Квартиры');
   const outsideClick = useOutsideClick<HTMLDivElement>(() => {
     status ? setStatus(!status) : setStatus(false);
   });
@@ -49,7 +54,7 @@ export default function Types() {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            setType('Квартиры');
+            changeType(RentalType.Apartment);
             setStatus(!status);
           }}
         >
@@ -58,7 +63,7 @@ export default function Types() {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            setType('Дома');
+            changeType(RentalType.House);
             setStatus(!status);
           }}
         >
@@ -67,7 +72,8 @@ export default function Types() {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            setType('Участки');
+            changeType(RentalType.Garden);
+
             setStatus(!status);
           }}
         >
@@ -76,7 +82,7 @@ export default function Types() {
         <button
           className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
           onClick={() => {
-            setType('Коммерческая');
+            changeType(RentalType.Commercial);
             setStatus(!status);
           }}
         >
