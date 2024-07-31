@@ -10,17 +10,12 @@ import { getFilterUnitByName } from '@/utils/getFilterUnitByName';
 
 interface FiltersProps {
   filters: (ChoiceFilter | RangeFilter)[];
-  type: RentalType;
-  changeType: (type: RentalType) => void;
 }
 
-export default function Filters({ filters, type, changeType }: FiltersProps) {
+export default function Filters({ filters }: FiltersProps) {
   return (
     <div className='flex mb-4 bg-white rounded'>
-      <Types
-        type={type}
-        changeType={() => changeType(type)}
-      />
+      <Types />
 
       {filters.map((filter) => {
         if (isChoiceFilter(filter)) {

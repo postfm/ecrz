@@ -8,8 +8,6 @@ import { getFilters } from '@/api/getFilters';
 import { useState } from 'react';
 
 export default async function Page() {
-  const [type, setType] = useState(RentalType.Apartment);
-
   const filters = await getFilters(RentalType.House);
 
   return (
@@ -57,11 +55,7 @@ export default async function Page() {
           </div>
         </div>
       </div>
-      <Filters
-        filters={filters}
-        type={type}
-        changeType={() => setType(type)}
-      />
+      <Filters filters={filters} />
     </>
   );
 }
