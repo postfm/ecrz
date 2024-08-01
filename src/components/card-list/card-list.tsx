@@ -1,5 +1,7 @@
 import Card from '../card/card';
 import { useLoadPaginatedCards } from '@/hooks/use-load-paginated-cards';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css';
 
 interface CardListProps extends ReturnType<typeof useLoadPaginatedCards> {}
 
@@ -8,6 +10,8 @@ export default function CardList({
   isError,
   error,
   data,
+  page,
+  setPage,
 }: CardListProps) {
   if (isPending) {
     return <span>Loading...</span>;
@@ -17,6 +21,8 @@ export default function CardList({
     return <span>Error: {error.message}</span>;
   }
 
+  console.log(data);
+
   if (data?.entities.length === 0) {
     return (
       <span>Результатов с такими настройками фильтра не было найдено</span>
@@ -24,10 +30,17 @@ export default function CardList({
   }
 
   return (
-    <div className='grid grid-cols-4 grid-rows-3 gap-4'>
-      {data?.entities.map((item) => {
-        return <Card key={item.id} property={item} />;
-      })}
-    </div>
+    <>
+      <div className='grid grid-cols-4 grid-rows-3 gap-4'>
+        {data?.entities.map((item) => {
+          return <Card key={item.id} property={item} />;
+        })}
+      </div>
+      <ResponsivePagination
+        current={page}
+        total={data?.totalPages || page}
+        onPageChange={setPage}
+      />
+    </>
   );
 }
