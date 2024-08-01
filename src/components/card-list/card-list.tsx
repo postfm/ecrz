@@ -1,40 +1,33 @@
-import { getCards } from '@/api/getCards';
 import Card from '../card/card';
-import { useQuery } from '@tanstack/react-query';
-import { RentalType } from '@/types';
+import { useLoadPaginatedCards } from '@/hooks/use-load-paginated-cards';
 
-interface CardListProps {
-  type: RentalType;
-}
+interface CardListProps extends ReturnType<typeof useLoadPaginatedCards> {}
 
-export default function CardList({ type }: CardListProps) {
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ['items', type],
-    queryFn: async () => (await getCards(type)).data,
-  });
-
+export default function CardList({
+  isPending,
+  isError,
+  error,
+  data,
+}: CardListProps) {
   if (isPending) {
     return <span>Loading...</span>;
   }
 
-  if (isError) {
+  if (isError && error) {
     return <span>Error: {error.message}</span>;
+  }
+
+  if (data?.entities.length === 0) {
+    return (
+      <span>Результатов с такими настройками фильтра не было найдено</span>
+    );
   }
 
   return (
     <div className='grid grid-cols-4 grid-rows-3 gap-4'>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {data?.entities.map((item) => {
+        return <Card key={item.id} property={item} />;
+      })}
     </div>
   );
 }

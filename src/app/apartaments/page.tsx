@@ -7,10 +7,12 @@ import { SorterSelect } from '@/components/filters/sorter-select';
 import CardList from '@/components/card-list/card-list';
 import { useState } from 'react';
 import { useFilters } from '@/hooks/use-filters';
+import { useLoadPaginatedCards } from '@/hooks/use-load-paginated-cards';
 
 export default function Page() {
   const [rentalType, setRentalType] = useState(RentalType.Apartment);
   const { selectedFilters, handleFilterChange } = useFilters();
+  const { data, ...rest } = useLoadPaginatedCards(rentalType, selectedFilters);
 
   return (
     <>
@@ -23,7 +25,7 @@ export default function Page() {
         />
         <div className='flex justify-between mb-5'>
           <MainSectionHeader
-            resultsNumber={100}
+            resultsNumber={data?.totalItems || 0}
             title='Купить 1-комнатную квартиру'
           />
           <SorterSelect
@@ -36,7 +38,7 @@ export default function Page() {
         type={rentalType}
         onFilterChange={(key, value) => handleFilterChange(key)(value)}
       />
-      <CardList type={rentalType} />
+      <CardList {...rest} data={data} />
     </>
   );
 }

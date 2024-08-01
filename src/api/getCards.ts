@@ -1,12 +1,13 @@
 import { client } from '@/client/client';
-import { RentalType } from '@/types';
+import { PropertyEntity, RentalType, ResponseType } from '@/types';
 
 export function getCards(
   rentalType: RentalType,
   queryParams: Record<string, string | string[]> = {},
 ) {
-  // todo:
+  // @ts-ignore value type is valid for constructor
   const params = new URLSearchParams(queryParams);
-  console.log(params.toString());
-  return client.get<[]>(`/${rentalType}`);
+  return client.get<ResponseType<PropertyEntity>>(
+    `/${rentalType}?${params.toString()}`,
+  );
 }

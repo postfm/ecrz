@@ -1,7 +1,12 @@
 import Image from 'next/image';
 import Photo1 from '../../../public/images/photo-1.png';
+import { PropertyEntity } from '@/types';
 
-export default function Card() {
+interface CardProps {
+  property: PropertyEntity;
+}
+
+export default function Card({ property }: CardProps) {
   return (
     <div className='flex flex-col w-[308px] h-[440px] rounded-xl bg-white'>
       <div className='w-full h-[214px]'>
@@ -12,11 +17,15 @@ export default function Card() {
       </div>
       <div className='flex flex-col w-full h-auto p-[18px] pb-6'>
         <div className='flex flex-col items-start pb-4 border-b-2'>
-          <div className='font-medium text-xs text-gray-600'>Квартира в новостройке</div>
-          <div className='font-medium text-lg text-blue-600'>
-            2-ком. квартира, 56м<sup>2</sup>
+          <div className='font-medium text-xs text-gray-600'>
+            Квартира в новостройке
           </div>
-          <div className='font-normal text-sm text-gray-800'>Брест, ул. Карла Маркса, 12</div>
+          <div className='font-medium text-lg text-blue-600'>
+            {property.name}
+          </div>
+          <div className='font-normal text-sm text-gray-800'>
+            Брест, ул. Карла Маркса, 12
+          </div>
         </div>
         <div className='flex flex-col items-start'>
           <div className='mt-4 mb-4 font-normal text-sm text-gray-800'>

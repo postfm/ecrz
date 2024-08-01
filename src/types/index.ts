@@ -75,3 +75,36 @@ export const SortOptions = [
   { value: 'totalArea', label: 'Площадь по убыванию' },
   { value: '-totalArea', label: 'Площадь по возрастанию' },
 ];
+
+export interface ResponseType<T> {
+  totalPages: number;
+  totalItems: number;
+  currentPage: number;
+  entities: T[];
+}
+
+export interface PropertyEntity {
+  id: string;
+  name: string;
+  priceUsd: number;
+  priceByn: number;
+  totalArea: number;
+  type: string;
+  floors: number;
+  floor: number;
+  livingArea: number;
+  kitchenArea: number;
+  pricePerMeterUsd: number;
+  pricePerMeterByn: number;
+  roomType: string;
+  location: {
+    id: string;
+    fullAddress: string;
+    shortAddress: string;
+    coordinates: string;
+  };
+  media: {
+    id: string;
+    url: string;
+  }[];
+}
