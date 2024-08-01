@@ -1,8 +1,30 @@
+import { getCards } from '@/api/getCards';
 import Card from '../card/card';
+import { useQuery } from '@tanstack/react-query';
+import { RentalType } from '@/types';
 
-export default function CardList() {
+interface CardListProps {
+  type: RentalType;
+}
+
+export default function CardList({ type }: CardListProps) {
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: ['items', type],
+    queryFn: async () => (await getCards(type)).data,
+  });
+
+  if (isPending) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
+
+  console.log(data.entities.length);
+
   return (
-    <div className='grid grid-cols-4 gap-4'>
+    <div className='grid grid-cols-4 grid-rows-3 gap-4'>
       <Card />
       <Card />
       <Card />
