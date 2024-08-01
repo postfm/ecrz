@@ -22,8 +22,6 @@ export default function RangeFilterComponent({
   const [minValue, setMinValue] = useState<string>('');
   const [maxValue, setMaxValue] = useState<string>('');
 
-  console.log({ maxValue, minValue });
-
   return (
     <div className='relative' ref={ref}>
       <div className='border-r-2'>
