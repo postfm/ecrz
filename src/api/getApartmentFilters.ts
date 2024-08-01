@@ -1,8 +1,7 @@
+import { client } from '@/client/client';
 import { apartmentFitlersMock } from '@/mocks/apartment-filters';
 import { ChoiceFilter, RangeFilter } from '@/types';
 
-export async function getApartmentFilters(): Promise<
-  (ChoiceFilter | RangeFilter)[]
-> {
-  return Promise.resolve(apartmentFitlersMock);
+export function getApartmentFilters() {
+  return client.get<(ChoiceFilter | RangeFilter)[]>('/apartments/filters');
 }

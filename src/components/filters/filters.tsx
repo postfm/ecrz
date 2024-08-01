@@ -1,23 +1,35 @@
 'use client';
 
 import React from 'react';
-import Types from './types';
-import Buttons from './buttons';
-import { ChoiceFilter, isChoiceFilter, isRangeFilter, RangeFilter, RentalType } from '@/types';
+import { isChoiceFilter, isRangeFilter, RentalType } from '@/types';
 import ChoiceFilterComponent from './choice-filter';
 import RangeFilterComponent from './range-filter';
 import { getFilterUnitByName } from '@/utils/getFilterUnitByName';
+import { useQuery } from '@tanstack/react-query';
+import { getFilters } from '@/api/getFilters';
+import AdditionalFilters from './additional-filters';
 
 interface FiltersProps {
-  filters: (ChoiceFilter | RangeFilter)[];
+  type: RentalType;
 }
 
-export default function Filters({ filters }: FiltersProps) {
-  return (
-    <div className='flex mb-4 bg-white rounded'>
-      <Types />
+export default function Filters({ type }: FiltersProps) {
+  const { isPending, isError, data, error } = useQuery({
+    queryKey: [type],
+    queryFn: async () => (await getFilters(type)).data,
+  });
 
-      {filters.map((filter) => {
+  if (isPending) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error: {error.message}</span>;
+  }
+
+  return (
+    <>
+      {data.map((filter) => {
         if (isChoiceFilter(filter)) {
           return (
             <ChoiceFilterComponent
@@ -43,7 +55,10 @@ export default function Filters({ filters }: FiltersProps) {
 
         return null;
       })}
-      <Buttons />
-    </div>
+      <div className='flex justify-center grow items-center'>
+        <AdditionalFilters />
+        <button className='w-24 h-14 bg-black text-white rounded'>Показать</button>
+      </div>
+    </>
   );
 }

@@ -1,15 +1,16 @@
+'use client';
 import { Select } from '@headlessui/react';
 import Link from 'next/link';
 import sort from './../../../public/Sort.svg';
 import Image from 'next/image';
 import Filters from '@/components/filters/filters';
-import { RentalType } from '@/types';
+import { ChoiceFilter, RangeFilter, RentalType } from '@/types';
 import { getFilters } from '@/api/getFilters';
-import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import Types from '@/components/filters/types';
+import CardList from '@/components/card-list/card-list';
 
-export default async function Page() {
-  const filters = await getFilters(RentalType.House);
-
+export default function Page() {
   return (
     <>
       <div className='pt-5 mb-4'>
@@ -55,7 +56,8 @@ export default async function Page() {
           </div>
         </div>
       </div>
-      <Filters filters={filters} />
+      <Types />
+      <CardList />
     </>
   );
 }

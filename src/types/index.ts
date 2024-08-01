@@ -1,9 +1,16 @@
 export enum RentalType {
-  Apartment = 'apartment',
-  House = 'house',
+  Apartment = 'apartments',
+  House = 'houses',
   Garden = 'garden',
   Commercial = 'commercial',
 }
+
+export const TransformRentalType = {
+  apartments: 'Квартиры',
+  houses: 'Дома',
+  garden: 'Участки',
+  commercial: 'Коммерческая',
+};
 
 export interface ChoiceFilter {
   name: string;

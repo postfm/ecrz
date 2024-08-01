@@ -64,7 +64,6 @@ export default function RangeFilterComponent({ filterProps, unit, onSubmit }: Ra
               <Input
                 className='peer w-40 h-14 rounded border-gray-500 border p-4 font-normal text-sm data-[focus]:outline-none data-[active]:outline-none data-[hover]:outline-none remove-arrow'
                 type='number'
-                pattern='[0-9\s]'
                 value={minValue}
                 onChange={(evt) => {
                   evt.target.value = evt.target.value.replace(/[^0-9]/g, '');
@@ -87,7 +86,6 @@ export default function RangeFilterComponent({ filterProps, unit, onSubmit }: Ra
                 className='peer w-40 h-14 rounded border-gray-500 border p-4 font-normal text-sm data-[focus]:outline-none data-[active]:outline-none data-[hover]:outline-none remove-arrow'
                 type='number'
                 value={maxValue}
-                pattern='[0-9\s]'
                 onChange={(evt) => {
                   evt.target.value = evt.target.value.replace(/[^0-9]/g, '');
                   setMaxValue(Number(evt.target.value));

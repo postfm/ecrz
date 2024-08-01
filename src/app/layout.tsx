@@ -3,6 +3,7 @@ import { Onest } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/header/header';
 import Footer from '@/components/footer/footer';
+import { ReactQueryClientProvider } from '@/components/react-query-client-provider';
 
 const onest = Onest({ subsets: ['cyrillic'] });
 
@@ -18,14 +19,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='ru'>
-      <body className={onest.className}>
-        <main className='w-[1366px] mx-auto'>
-          <Header />
-          {children}
-          <Footer />
-        </main>
-      </body>
-    </html>
+    <ReactQueryClientProvider>
+      <html lang='ru'>
+        <body className={onest.className}>
+          <main className='w-[1366px] mx-auto'>
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </body>
+      </html>
+    </ReactQueryClientProvider>
   );
 }
