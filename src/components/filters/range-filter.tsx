@@ -9,7 +9,7 @@ import React, { ReactNode, useState } from 'react';
 interface RangeFilterProps {
   filterProps: RangeFilter;
   unit: ReactNode;
-  onSubmit: (filterKey: string, min?: number, max?: number) => void;
+  onSubmit: (filterKey: string, min?: string, max?: string) => void;
 }
 
 export default function RangeFilterComponent({
@@ -124,7 +124,7 @@ export default function RangeFilterComponent({
               value='Применить'
               onClick={(evt) => {
                 evt.preventDefault();
-                onSubmit(filterProps.name, Number(minValue), Number(maxValue));
+                onSubmit(filterProps.name, minValue, maxValue);
                 toggle();
               }}
             />

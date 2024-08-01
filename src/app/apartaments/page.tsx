@@ -1,62 +1,42 @@
 'use client';
-import { Select } from '@headlessui/react';
-import Link from 'next/link';
-import sort from './../../../public/Sort.svg';
-import Image from 'next/image';
 import Filters from '@/components/filters/filters';
-import { ChoiceFilter, RangeFilter, RentalType } from '@/types';
-import { getFilters } from '@/api/getFilters';
-import { useQuery } from '@tanstack/react-query';
-import Types from '@/components/filters/types';
+import { RentalType, SortOptions } from '@/types';
+import { Breadcrumbs } from '@/components/breadcrumbs';
+import { MainSectionHeader } from '@/components/main-section-header';
+import { SorterSelect } from '@/components/filters/sorter-select';
 import CardList from '@/components/card-list/card-list';
+import { useState } from 'react';
+import { useFilters } from '@/hooks/use-filters';
 
 export default function Page() {
+  const [rentalType, setRentalType] = useState(RentalType.Apartment);
+  const { selectedFilters, handleFilterChange } = useFilters();
+
   return (
     <>
       <div className='pt-5 mb-4'>
-        <div className='font-normal text-sm mb-4'>
-          <Link href={'/'}>Главная</Link> /{' '}
-          <Link
-            href={'/apartaments'}
-            className='text-gray-500'
-          >
-            Купить 1-комнатную квартиру
-          </Link>
-        </div>
+        <Breadcrumbs
+          links={[
+            { link: '/', label: 'Главная' },
+            { link: '/apartaments', label: 'Купить 1-комнатную квартиру' },
+          ]}
+        />
         <div className='flex justify-between mb-5'>
-          <p className='font-medium text-3xl relative'>
-            Купить 1-комнатную квартиру
-            <span className='font-normal text-sm absolute top-2 -right-32 text-gray-500'>
-              100 результатов
-            </span>
-          </p>
-          <div className='flex'>
-            <Image
-              src={sort}
-              width={16}
-              height={16}
-              alt='Иконка сортировки'
-              className='mr-4'
-            />
-            <Select
-              name='sortBy'
-              aria-label='Sorting items'
-              className='bg-inherit w-auto font-medium text-sm hover:text-sky-600'
-            >
-              <option
-                value='price'
-                className='hover:text-black'
-              >
-                Сначала дорогие
-              </option>
-              <option value='-price'>Сначала дешевые</option>
-              <option value='totalArea'>Площадь по убыванию</option>
-              <option value='-totalArea'>Площадь по возрастанию</option>
-            </Select>
-          </div>
+          <MainSectionHeader
+            resultsNumber={100}
+            title='Купить 1-комнатную квартиру'
+          />
+          <SorterSelect
+            options={SortOptions}
+            onChange={handleFilterChange('sortBy')}
+          />
         </div>
       </div>
-      <Types />
+      <Filters
+        type={rentalType}
+        onFilterChange={(key, value) => handleFilterChange(key)(value)}
+      />
+      <CardList type={rentalType} />
     </>
   );
 }

@@ -21,8 +21,6 @@ export default function CardList({ type }: CardListProps) {
     return <span>Error: {error.message}</span>;
   }
 
-  console.log(data.entities.length);
-
   return (
     <div className='grid grid-cols-4 grid-rows-3 gap-4'>
       <Card />
