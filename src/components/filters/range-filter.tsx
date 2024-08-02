@@ -12,18 +12,17 @@ interface RangeFilterProps {
   onSubmit: (filterKey: string, min?: string, max?: string) => void;
 }
 
-export default function RangeFilterComponent({
-  filterProps,
-  unit,
-  onSubmit,
-}: RangeFilterProps) {
+export default function RangeFilterComponent({ filterProps, unit, onSubmit }: RangeFilterProps) {
   const { ref, isOpen, toggle } = usePopupMenu<HTMLDivElement>();
 
   const [minValue, setMinValue] = useState<string>('');
   const [maxValue, setMaxValue] = useState<string>('');
 
   return (
-    <div className='relative' ref={ref}>
+    <div
+      className='relative'
+      ref={ref}
+    >
       <div className='border-r-2'>
         <button
           className='inline-flex items-center justify-between gap-2 font-medium hover:text-sky-600 p-6 w-60'
@@ -39,14 +38,10 @@ export default function RangeFilterComponent({
             </div>
           ) : (
             <div className='flex flex-col items-start'>
-              <p className='font-normal text-xs text-gray-500 mb-2'>
-                {filterProps.name}
-              </p>
+              <p className='font-normal text-xs text-gray-500 mb-2'>{filterProps.name}</p>
               <div className='flex'>
                 {minValue} - {maxValue}
-                <span className='font-medium text-base text-gray-500 ml-2'>
-                  {unit}
-                </span>
+                <span className='font-medium text-base text-gray-500 ml-2'>{unit}</span>
               </div>
             </div>
           )}
@@ -59,7 +54,7 @@ export default function RangeFilterComponent({
         </button>
       </div>
       <div
-        className={`absolute top-24 w-fit mt-2 bg-white rounded-md shadow-3xl  ${
+        className={`absolute top-24 w-fit mt-2 bg-white rounded-md shadow-3xl z-50  ${
           isOpen ? 'visible' : 'collapse'
         }`}
       >

@@ -63,7 +63,7 @@ export default function ChoiceFilterComponent({ filterProps, onSubmit }: ChoiceF
         </button>
       </div>
       <div
-        className={`absolute top-24 w-fit mt-2 bg-white rounded-md shadow-3xl  ${
+        className={`absolute top-24 w-fit mt-2 bg-white rounded-md shadow-3xl z-50  ${
           isOpen ? 'visible' : 'collapse'
         }`}
       >

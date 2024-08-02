@@ -44,7 +44,7 @@ export default function SelectFilter({ onChange, initialOption, options }: Selec
         </button>
       </div>
       <div
-        className={`absolute top-24 w-60 mt-2 bg-white rounded-md shadow-3xl p-3  ${
+        className={`absolute top-24 w-60 mt-2 bg-white rounded-md shadow-3xl p-3  z-50 ${
           isOpen ? 'visible' : 'collapse'
         }`}
       >
