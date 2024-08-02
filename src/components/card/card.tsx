@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Photo1 from '../../../public/images/photo-1.png';
+import Photo4 from '../../../public/images/photo-4.png';
 import { PropertyEntity, RentalType } from '@/types';
 import Fridge from '../../../public/fridge.svg';
 import Bed from '../../../public/bed.svg';
 import Tabler from '../../../public/tabler-stairs.svg';
 import Square from '../../../public/square.svg';
+import { Carousel, IconButton } from '@material-tailwind/react';
 
 interface CardProps {
   property: PropertyEntity;
@@ -13,12 +15,85 @@ interface CardProps {
 
 export default function Card({ property, rentalType }: CardProps) {
   return (
-    <div className='flex flex-col w-[308px] h-full rounded-xl bg-white'>
+    <div className='group flex flex-col w-[308px] h-full rounded-xl bg-white hover:shadow-3xl'>
       <div className='w-full h-[214px]'>
-        <Image
-          src={Photo1}
-          alt=''
-        />
+        <Carousel
+          loop={true}
+          navigation={({ setActiveIndex, activeIndex, length }) => (
+            <div className='absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2'>
+              {new Array(length).fill('').map((_, i) => (
+                <span
+                  key={i}
+                  className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
+                    activeIndex === i ? 'w-[28px] h-1 bg-blue-600' : 'w-[28px] h-1 bg-white/50'
+                  }`}
+                  onClick={() => setActiveIndex(i)}
+                />
+              ))}
+            </div>
+          )}
+          prevArrow={({ handlePrev }) => (
+            <IconButton
+              variant='text'
+              color='white'
+              size='lg'
+              onClick={handlePrev}
+              className='!absolute top-2/4 left-2 -translate-y-2/4 rounded-full select-none transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-9 max-w-[36px] h-9 max-h-[36px] text-black bg-white hover:bg-white active:bg-white hidden group-hover:grid place-items-center'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke-width='1.5'
+                stroke='currentColor'
+                className='size-5'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  d='M15.75 19.5 8.25 12l7.5-7.5'
+                />
+              </svg>
+            </IconButton>
+          )}
+          nextArrow={({ handleNext }) => (
+            <IconButton
+              variant='text'
+              color='white'
+              size='lg'
+              onClick={handleNext}
+              className='!absolute top-2/4 !right-4 -translate-y-2/4 rounded-full select-none transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-9 max-w-[36px] h-9 max-h-[36px] text-black bg-white hover:bg-white active:bg-white hidden group-hover:grid place-items-center'
+            >
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                fill='none'
+                viewBox='0 0 24 24'
+                stroke-width='1.5'
+                stroke='currentColor'
+                className='size-5'
+              >
+                <path
+                  stroke-linecap='round'
+                  stroke-linejoin='round'
+                  d='m8.25 4.5 7.5 7.5-7.5 7.5'
+                />
+              </svg>
+            </IconButton>
+          )}
+        >
+          <Image
+            src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
+            alt=''
+          />
+          <Image
+            src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
+            alt=''
+          />
+          <Image
+            src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
+            alt=''
+          />
+        </Carousel>
       </div>
       <div className='flex flex-col w-full h-auto p-[18px] pb-6'>
         <div className='flex flex-col items-start pb-4 border-b-2'>
