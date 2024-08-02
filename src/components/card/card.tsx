@@ -37,14 +37,17 @@ export default function Card({ property, rentalType }: CardProps) {
         </div>
         <div className='flex flex-col items-start'>
           <div className='flex align-bottom mt-4 mb-4 font-normal text-sm text-gray-800'>
-            <div className='flex mr-4'>
-              <Image
-                src={Square}
-                alt='square'
-                className='mr-1'
-              />
-              <div>10 сот</div>
-            </div>
+            {rentalType !== RentalType.Apartment && (
+              <div className='flex mr-4'>
+                <Image
+                  src={Square}
+                  alt='square'
+                  className='mr-1'
+                />
+                <div>10 сот</div>
+              </div>
+            )}
+
             <div className='flex mr-4'>
               <Image
                 src={Fridge}
