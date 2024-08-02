@@ -15,3 +15,18 @@ export const getFilterUnitByName = (name: string) => {
 
   return unit;
 };
+
+export const inclineWord = (num: number) => {
+  const n = num % 10;
+  switch (n) {
+    case 1:
+      return 'результат';
+    case 2:
+    case 3:
+    case 4:
+      return 'результата';
+
+    default:
+      return 'результатов';
+  }
+};
