@@ -20,7 +20,7 @@ export default function Card({ property, rentalType }: CardProps) {
         <Carousel
           loop={true}
           navigation={({ setActiveIndex, activeIndex, length }) => (
-            <div className='absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2'>
+            <div className='absolute bottom-4 left-2/4 z-50 group-hover:flex -translate-x-2/4 gap-2 hidden '>
               {new Array(length).fill('').map((_, i) => (
                 <span
                   key={i}
