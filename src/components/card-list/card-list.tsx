@@ -1,10 +1,12 @@
 import Card from '../card/card';
 import { useLoadPaginatedCards } from '@/hooks/use-load-paginated-cards';
-import { ChevronLeftIcon } from '@heroicons/react/16/solid';
+import { RentalType } from '@/types';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
 
-interface CardListProps extends ReturnType<typeof useLoadPaginatedCards> {}
+interface CardListProps extends ReturnType<typeof useLoadPaginatedCards> {
+  rentalType: RentalType;
+}
 
 export default function CardList({
   isPending,
@@ -13,6 +15,7 @@ export default function CardList({
   data,
   page,
   setPage,
+  rentalType,
 }: CardListProps) {
   if (isPending) {
     return <span>Loading...</span>;
@@ -34,6 +37,7 @@ export default function CardList({
             <Card
               key={item.id}
               property={item}
+              rentalType={rentalType}
             />
           );
         })}

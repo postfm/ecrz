@@ -42,6 +42,7 @@ export default function Page() {
       <CardList
         {...rest}
         data={data}
+        rentalType={rentalType}
       />
     </>
   );
