@@ -36,15 +36,11 @@ interface RangeBoundary {
   key: string;
 }
 
-export function isChoiceFilter(
-  filter: ChoiceFilter | RangeFilter,
-): filter is ChoiceFilter {
+export function isChoiceFilter(filter: ChoiceFilter | RangeFilter): filter is ChoiceFilter {
   return filter.type === 'choices';
 }
 
-export function isRangeFilter(
-  filter: ChoiceFilter | RangeFilter,
-): filter is RangeFilter {
+export function isRangeFilter(filter: ChoiceFilter | RangeFilter): filter is RangeFilter {
   return filter.type === 'range';
 }
 
@@ -70,10 +66,10 @@ export const TypeSelectOptions = [
 ];
 
 export const SortOptions = [
-  { value: 'price', label: 'Сначала дорогие' },
-  { value: '-price', label: 'Сначала дешевые' },
-  { value: 'totalArea', label: 'Площадь по убыванию' },
-  { value: '-totalArea', label: 'Площадь по возрастанию' },
+  { value: '-price', label: 'Сначала дорогие' },
+  { value: 'price', label: 'Сначала дешевые' },
+  { value: '-totalArea', label: 'Площадь по убыванию' },
+  { value: 'totalArea', label: 'Площадь по возрастанию' },
 ];
 
 export interface ResponseType<T> {
