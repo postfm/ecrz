@@ -3,24 +3,23 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/16/solid';
 import React, { useState } from 'react';
 import { usePopupMenu } from '@/hooks/use-popup-menu';
+import { RentalType } from '@/types';
 
 interface SelectFilterProps {
   initialOption: { value: string; label: string };
   options: { value: string; label: string; disabled?: boolean }[];
-  onChange?: (value: string) => void;
+  onChange?: (value: RentalType) => void;
 }
 
-export default function SelectFilter({
-  onChange,
-  initialOption,
-  options,
-}: SelectFilterProps) {
+export default function SelectFilter({ onChange, initialOption, options }: SelectFilterProps) {
   const { ref, isOpen, toggle } = usePopupMenu<HTMLDivElement>();
-  const [value, setValue] = useState(initialOption.value);
   const [label, setLabel] = useState(initialOption.label);
 
   return (
-    <div className='relative' ref={ref}>
+    <div
+      className='relative'
+      ref={ref}
+    >
       <div className='border-r-2'>
         <button
           className='inline-flex items-center justify-between gap-2 font-medium hover:text-sky-600 p-6 w-60'
@@ -56,9 +55,8 @@ export default function SelectFilter({
               className='block w-full h-12 text-left pt-3 pr-4 pb-3 pl-4 rounded hover:bg-gray-100'
               disabled={option.disabled}
               onClick={() => {
-                setValue(option.value);
                 setLabel(option.label);
-                onChange?.(option.value);
+                onChange?.(option.value as RentalType);
                 toggle();
               }}
             >

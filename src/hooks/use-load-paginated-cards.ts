@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 
 export function useLoadPaginatedCards(
   rentalType: RentalType,
-  queryParams: Record<string, string | string[]> = {},
+  queryParams: Record<string, string | string[]> = {}
 ) {
   const [page, setPage] = useState(0);
 
@@ -13,13 +13,11 @@ export function useLoadPaginatedCards(
     setPage(0);
   }, [queryParams]);
 
-  const { isPending, isError, error, data, isFetching, isPlaceholderData } =
-    useQuery({
-      queryKey: ['projects', page, JSON.stringify(queryParams)],
-      queryFn: () =>
-        getCards(rentalType, { ...queryParams, page: String(page) }),
-      placeholderData: keepPreviousData,
-    });
+  const { isPending, isError, error, data, isFetching, isPlaceholderData } = useQuery({
+    queryKey: ['projects', page, JSON.stringify(queryParams), rentalType],
+    queryFn: () => getCards(rentalType, { ...queryParams, page: String(page) }),
+    placeholderData: keepPreviousData,
+  });
 
   return {
     isPending,

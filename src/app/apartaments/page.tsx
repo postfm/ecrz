@@ -37,8 +37,12 @@ export default function Page() {
       <Filters
         type={rentalType}
         onFilterChange={(key, value) => handleFilterChange(key)(value)}
+        setRentalType={(rentalType) => setRentalType(rentalType)}
       />
-      <CardList {...rest} data={data} />
+      <CardList
+        {...rest}
+        data={data}
+      />
     </>
   );
 }

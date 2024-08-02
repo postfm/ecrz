@@ -1,12 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  isChoiceFilter,
-  isRangeFilter,
-  RentalType,
-  TypeSelectOptions,
-} from '@/types';
+import { isChoiceFilter, isRangeFilter, RentalType, TypeSelectOptions } from '@/types';
 import ChoiceFilterComponent from './choice-filter';
 import RangeFilterComponent from './range-filter';
 import { getFilterUnitByName } from '@/utils/getFilterUnitByName';
@@ -18,9 +13,10 @@ import SelectFilter from './select-filter';
 interface FiltersProps {
   type: RentalType;
   onFilterChange: (key: string, value: string | string[]) => void;
+  setRentalType: (value: RentalType) => void;
 }
 
-export default function Filters({ type, onFilterChange }: FiltersProps) {
+export default function Filters({ type, onFilterChange, setRentalType }: FiltersProps) {
   const { isPending, isError, data, error } = useQuery({
     queryKey: [type],
     queryFn: async () => (await getFilters(type)).data,
@@ -39,6 +35,7 @@ export default function Filters({ type, onFilterChange }: FiltersProps) {
       <SelectFilter
         options={TypeSelectOptions}
         initialOption={TypeSelectOptions[0]}
+        onChange={setRentalType}
       />
       {data.map((filter) => {
         if (isChoiceFilter(filter)) {
@@ -58,7 +55,6 @@ export default function Filters({ type, onFilterChange }: FiltersProps) {
               filterProps={filter}
               unit={getFilterUnitByName(filter.name)}
               onSubmit={(filterKey, min, max) => {
-                console.log(min, max);
                 if (max) {
                   onFilterChange(filter.max.key, String(max));
                 }
@@ -75,9 +71,7 @@ export default function Filters({ type, onFilterChange }: FiltersProps) {
       })}
       <div className='flex justify-center grow items-center'>
         <AdditionalFilters />
-        <button className='w-24 h-14 bg-black text-white rounded'>
-          Показать
-        </button>
+        <button className='w-24 h-14 bg-black text-white rounded'>Показать</button>
       </div>
     </div>
   );
