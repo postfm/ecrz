@@ -2,5 +2,5 @@ import Footer from '@/components/footer/footer';
 import Header from '@/components/header/header';
 
 export default function Home() {
-  return <section>Main Page</section>;
+  return <section className='h-[262px]'></section>;
 }
