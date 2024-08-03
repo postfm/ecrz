@@ -1,11 +1,9 @@
-import { Button } from '@headlessui/react';
-
 export default function Call() {
   return (
     <div>
-      <Button className='w-36 h-12 border-2 rounded font-medium text-sky-600 border-sky-600 text-sm hover:bg-sky-600 hover:text-white'>
+      <button className='w-[196px] h-[52px] text-sm font-medium p-4 bg-white text-blue-600 rounded hover:bg-blue-600 hover:text-white border-blue-600 border-2'>
         Заказать звонок
-      </Button>
+      </button>
     </div>
   );
 }

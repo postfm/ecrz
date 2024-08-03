@@ -39,6 +39,9 @@ export default function Card({ property, rentalType }: CardProps) {
               size='lg'
               onClick={handlePrev}
               className='!absolute top-2/4 left-2 -translate-y-2/4 rounded-full select-none transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-9 max-w-[36px] h-9 max-h-[36px] text-black bg-white hover:bg-white active:bg-white hidden group-hover:grid place-items-center'
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -63,6 +66,9 @@ export default function Card({ property, rentalType }: CardProps) {
               size='lg'
               onClick={handleNext}
               className='!absolute top-2/4 !right-4 -translate-y-2/4 rounded-full select-none transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-9 max-w-[36px] h-9 max-h-[36px] text-black bg-white hover:bg-white active:bg-white hidden group-hover:grid place-items-center'
+              placeholder={undefined}
+              onPointerEnterCapture={undefined}
+              onPointerLeaveCapture={undefined}
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -80,6 +86,9 @@ export default function Card({ property, rentalType }: CardProps) {
               </svg>
             </IconButton>
           )}
+          placeholder={undefined}
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
         >
           <Image
             src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
