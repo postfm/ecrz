@@ -20,14 +20,12 @@ export default function CardList({
 }: CardListProps) {
   if (isPending) {
     return (
-      <div className='flex items-end gap-8 mx-auto'>
-        <Spinner
-          className='h-8 w-8'
-          color='blue'
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        />
-      </div>
+      <Spinner
+        className='h-8 w-8 mx-auto'
+        color='blue'
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
     );
   }
 

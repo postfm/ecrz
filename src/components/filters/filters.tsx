@@ -25,14 +25,12 @@ export default function Filters({ type, onFilterChange, setRentalType }: Filters
 
   if (isPending) {
     return (
-      <div className='flex items-center gap-8'>
-        <Spinner
-          className='h-8 w-8'
-          color='blue'
-          onPointerEnterCapture={undefined}
-          onPointerLeaveCapture={undefined}
-        />
-      </div>
+      <Spinner
+        className='h-8 w-8 mx-auto'
+        color='blue'
+        onPointerEnterCapture={undefined}
+        onPointerLeaveCapture={undefined}
+      />
     );
   }
 
