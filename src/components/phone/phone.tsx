@@ -8,7 +8,7 @@ interface PhoneProps {
 
 const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
   return (
-    <div className={`flex flex-col ${footer ? 'items-end' : 'items-start'}`}>
+    <div className={`flex flex-col ${footer ? 'items-end' : 'items-start'} sm:hidden`}>
       <div className='flex'>
         {!footer && (
           <Image

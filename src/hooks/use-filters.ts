@@ -31,5 +31,5 @@ function getItemAmountPerPage() {
   if (screenWidth <= 640) {
     itemPerPage = 4;
   }
-  return itemPerPage;
+  return String(itemPerPage);
 }

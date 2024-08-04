@@ -7,7 +7,7 @@ import Legal from './legal';
 
 export default function Catalog() {
   return (
-    <div className='flex justify-between max-2xl:w-[1302px] pt-4 pb-4 bg-white'>
+    <div className='flex justify-between max-2xl:w-[1302px] pt-4 pb-4 bg-white sm:flex-col'>
       <Apartments />
       <Houses />
       <Grounds />

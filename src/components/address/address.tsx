@@ -10,7 +10,7 @@ export default function Address() {
 
   return (
     <div
-      className='flex justify-between align-baseline'
+      className='flex justify-between align-baseline sm:hidden'
       ref={ref}
     >
       <Image

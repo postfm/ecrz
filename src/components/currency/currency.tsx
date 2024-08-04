@@ -2,7 +2,7 @@ import { Select } from '@headlessui/react';
 
 export default function Currency() {
   return (
-    <div>
+    <div className='sm:hidden'>
       <Select
         name='currency'
         aria-label='Project currency'
