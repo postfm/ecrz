@@ -29,7 +29,7 @@ export default function Address() {
         </button>
       </div>
       <div
-        className={`fixed top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4  p-6 bg-white rounded-xl shadow-3xl p-3  z-50 ${
+        className={`fixed top-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4  p-6 bg-white rounded-xl shadow-3xl z-50 ${
           isOpen ? 'visible' : 'collapse'
         }`}
       >

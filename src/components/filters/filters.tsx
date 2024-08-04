@@ -9,6 +9,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getFilters } from '@/api/getFilters';
 import AdditionalFilters from './additional-filters';
 import SelectFilter from './select-filter';
+import { Spinner } from '@material-tailwind/react';
 
 interface FiltersProps {
   type: RentalType;
@@ -23,7 +24,16 @@ export default function Filters({ type, onFilterChange, setRentalType }: Filters
   });
 
   if (isPending) {
-    return <span>Loading...</span>;
+    return (
+      <div className='flex items-center gap-8'>
+        <Spinner
+          className='h-8 w-8'
+          color='blue'
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        />
+      </div>
+    );
   }
 
   if (isError) {

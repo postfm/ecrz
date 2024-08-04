@@ -1,6 +1,7 @@
 import Card from '../card/card';
 import { useLoadPaginatedCards } from '@/hooks/use-load-paginated-cards';
 import { RentalType } from '@/types';
+import { Spinner } from '@material-tailwind/react';
 import ResponsivePagination from 'react-responsive-pagination';
 import 'react-responsive-pagination/themes/classic.css';
 
@@ -18,7 +19,16 @@ export default function CardList({
   rentalType,
 }: CardListProps) {
   if (isPending) {
-    return <span>Loading...</span>;
+    return (
+      <div className='flex items-end gap-8 mx-auto'>
+        <Spinner
+          className='h-8 w-8'
+          color='blue'
+          onPointerEnterCapture={undefined}
+          onPointerLeaveCapture={undefined}
+        />
+      </div>
+    );
   }
 
   if (isError && error) {
