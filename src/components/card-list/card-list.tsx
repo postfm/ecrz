@@ -23,8 +23,6 @@ export default function CardList({
       <Spinner
         className='h-8 w-8 mx-auto'
         color='blue'
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
       />
     );
   }
@@ -39,7 +37,7 @@ export default function CardList({
 
   return (
     <>
-      <div className='grid grid-cols-4 grid-rows-3 gap-4'>
+      <div className='grid grid-cols-4 grid-rows-3 gap-4 lg:grid-rows-2 sm:grid-cols-1 sm:grid-rows-4'>
         {data?.entities.map((item) => {
           return (
             <Card
@@ -63,13 +61,13 @@ export default function CardList({
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            stroke-width='1.5'
+            strokeWidth='1.5'
             stroke='currentColor'
             className='size-[18px]'
           >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeLinecap='round'
+              strokeLinejoin='round'
               d='M15.75 19.5 8.25 12l7.5-7.5'
             />
           </svg>
@@ -79,13 +77,13 @@ export default function CardList({
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
             viewBox='0 0 24 24'
-            stroke-width='1.5'
+            strokeWidth='1.5'
             stroke='currentColor'
             className='size-[18px]'
           >
             <path
-              stroke-linecap='round'
-              stroke-linejoin='round'
+              strokeLinecap='round'
+              strokeLinejoin='round'
               d='m8.25 4.5 7.5 7.5-7.5 7.5'
             />
           </svg>

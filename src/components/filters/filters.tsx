@@ -28,8 +28,6 @@ export default function Filters({ type, onFilterChange, setRentalType }: Filters
       <Spinner
         className='h-8 w-8 mx-auto'
         color='blue'
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
       />
     );
   }
