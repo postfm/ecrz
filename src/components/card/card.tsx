@@ -25,7 +25,9 @@ export default function Card({ property, rentalType }: CardProps) {
                 <span
                   key={i}
                   className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                    activeIndex === i ? 'w-[28px] h-1 bg-blue-600' : 'w-[28px] h-1 bg-white/50'
+                    activeIndex === i
+                      ? 'w-[28px] h-1 bg-blue-600'
+                      : 'w-[28px] h-1 bg-white/50'
                   }`}
                   onClick={() => setActiveIndex(i)}
                 />
@@ -84,77 +86,58 @@ export default function Card({ property, rentalType }: CardProps) {
           )}
           placeholder={undefined}
         >
-          <Image
-            src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
-            alt=''
-          />
-          <Image
-            src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
-            alt=''
-          />
-          <Image
-            src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
-            alt=''
-          />
+          {property.media.map((item) => (
+            <Image
+              key={item.id}
+              src={rentalType === RentalType.Apartment ? Photo1 : Photo4}
+              alt=''
+            />
+          ))}
         </Carousel>
       </div>
       <div className='flex flex-col w-full h-auto p-[18px] pb-6'>
         <div className='flex flex-col items-start pb-4 border-b-2'>
           {rentalType === RentalType.Apartment && (
-            <div className='font-medium text-xs text-gray-600'>Квартира в новостройке</div>
-          )}
-
-          <div className='font-medium text-lg text-blue-600'>{property.name}</div>
-          {rentalType === RentalType.Apartment ? (
-            <div className='font-normal text-sm text-gray-800'>Брест, ул. Карла Маркса, 12</div>
-          ) : (
-            <div className='font-normal text-sm text-gray-800'>
-              пгт. Остромечево, ул. Агрономическая, корпус 2, д. 212А
+            <div className='font-medium text-xs text-gray-600'>
+              {property.roomType}
             </div>
           )}
+
+          <div className='font-medium text-lg text-blue-600'>
+            {property.name}
+          </div>
+          <div className='font-normal text-sm text-gray-800'>
+            {property.location.fullAddress}
+          </div>
         </div>
         <div className='flex flex-col items-start'>
           <div className='flex align-bottom mt-4 mb-4 font-normal text-sm text-gray-800'>
             {rentalType !== RentalType.Apartment && (
               <div className='flex mr-4'>
-                <Image
-                  src={Square}
-                  alt='square'
-                  className='mr-1'
-                />
-                <div>10 сот</div>
+                <Image src={Square} alt='square' className='mr-1' />
+                <div>{property.totalArea} сот</div>
               </div>
             )}
 
             <div className='flex mr-4'>
-              <Image
-                src={Fridge}
-                alt='fridge'
-                className='mr-1'
-              />
+              <Image src={Fridge} alt='fridge' className='mr-1' />
               <div>
-                14м<sup>2</sup>
+                {property.kitchenArea}м<sup>2</sup>
               </div>
             </div>
             {rentalType === RentalType.Apartment && (
               <>
                 <div className='flex mr-4'>
-                  <Image
-                    src={Bed}
-                    alt='bed'
-                    className='mr-1'
-                  />
+                  <Image src={Bed} alt='bed' className='mr-1' />
                   <div>
-                    25м<sup>2</sup>
+                    {property.livingArea}м<sup>2</sup>
                   </div>
                 </div>
                 <div className='flex mr-4'>
-                  <Image
-                    src={Tabler}
-                    alt='tabler'
-                    className='mr-1'
-                  />
-                  <div>3/10 этаж</div>
+                  <Image src={Tabler} alt='tabler' className='mr-1' />
+                  <div>
+                    {property.floor}/{property.floors} этаж
+                  </div>
                 </div>
               </>
             )}
@@ -164,7 +147,7 @@ export default function Card({ property, rentalType }: CardProps) {
             <div>{`BYN ${property.priceByn}`}</div>
           </div>
           <div className='font-normal text-sm text-gray-600'>
-            $ 1000 / м<sup>2</sup>
+            $ {property.pricePerMeterUsd} / м<sup>2</sup>
           </div>
         </div>
       </div>
