@@ -39,7 +39,7 @@ export default function CardList({
 
   return (
     <>
-      <div className='grid grid-cols-4 grid-rows-3 gap-4 lg:grid-rows-2 sm:grid-cols-1 sm:grid-rows-4'>
+      <div className='flex flex-wrap gap-4 justify-center'>
         {data?.entities.map((item) => {
           return (
             <Card

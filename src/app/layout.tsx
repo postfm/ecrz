@@ -22,7 +22,7 @@ export default function RootLayout({
     <ReactQueryClientProvider>
       <html lang='ru'>
         <body className={onest.className}>
-          <main className='w-[1366px] mx-auto'>
+          <main className='mw-[1366px] mx-auto'>
             <Header />
             {children}
             <Footer />

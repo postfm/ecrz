@@ -23,7 +23,7 @@ export default function Page() {
             { link: '/apartaments', label: 'Купить 1-комнатную квартиру' },
           ]}
         />
-        <div className='flex justify-between mb-5'>
+        <div className='flex flex-wrap justify-between mb-5'>
           <MainSectionHeader
             resultsNumber={data?.totalItems || 0}
             title='Купить 1-комнатную квартиру'

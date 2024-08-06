@@ -37,7 +37,7 @@ export default function Filters({ type, onFilterChange, setRentalType }: Filters
   }
 
   return (
-    <div className='flex mb-4 bg-white rounded'>
+    <div className='flex flex-wrap mb-4 bg-white rounded'>
       <SelectFilter
         options={TypeSelectOptions}
         initialOption={TypeSelectOptions[0]}

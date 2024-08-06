@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 export function useFilters() {
   const [selectedFilters, setSelectedFilters] = useState({
     sortBy: 'price',
+    limit: getItemAmountPerPage()
   } as Record<string, string | string[]>);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export function useFilters() {
 }
 
 function getItemAmountPerPage() {
-  const screenWidth = window.screen.width;
+  const screenWidth = window.innerWidth;
   let itemPerPage = 12;
   if (screenWidth <= 1024) {
     itemPerPage = 8;
