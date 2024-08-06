@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 export function useFilters() {
   const [selectedFilters, setSelectedFilters] = useState({
     sortBy: 'price',
-    limit: getItemAmountPerPage()
+    limit: '12',
   } as Record<string, string | string[]>);
 
   useEffect(() => {
