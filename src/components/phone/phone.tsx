@@ -18,7 +18,7 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
             alt='Иконка телефона'
           />
         )}
-        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2`}>+375(29)200-10-80</p>
+        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2`}>+375 (29) 200-10-80</p>
       </div>
       <div className='flex'>
         {!footer && (
@@ -29,7 +29,7 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
             alt='Иконка телефона'
           />
         )}
-        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2`}>8(0162)93-20-50</p>
+        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2`}>8 (0162) 93-20-50</p>
       </div>
     </div>
   );
