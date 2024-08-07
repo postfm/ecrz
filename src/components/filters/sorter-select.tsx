@@ -1,6 +1,6 @@
 import { Select } from '@headlessui/react';
 import Image from 'next/image';
-import sort from './../../../public/Sort.svg';
+import Sort from './../../../public/sort.svg';
 import { useState } from 'react';
 
 interface SorterSelectProps {
@@ -14,7 +14,7 @@ export const SorterSelect = ({ options, onChange }: SorterSelectProps) => {
   return (
     <div className='flex'>
       <Image
-        src={sort}
+        src={Sort}
         width={16}
         height={16}
         alt='Иконка сортировки'
