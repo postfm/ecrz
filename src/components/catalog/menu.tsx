@@ -29,13 +29,18 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
           </>
         )}
       </MenuButton>
-      <MenuItems anchor='bottom' className='bg-white shadow-3xl rounded-md'>
+      <MenuItems
+        anchor='bottom'
+        className='bg-white shadow-3xl rounded-md  p-4'
+      >
         {options.map((option) => (
           <MenuItem key={option.key}>
             {({ focus }) => (
               <button
                 onClick={() => onSelect?.(option.key)}
-                className={'block pt-3 pr-4 pb-3 pl-4 text-left w-full'}
+                className={
+                  'block pt-3 pr-4 pb-3 pl-4 text-left w-full rounded-md'
+                }
                 style={{ backgroundColor: focus ? '#F6F6F6' : '#fff' }}
               >
                 {option.title}
