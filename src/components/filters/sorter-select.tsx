@@ -12,13 +12,13 @@ export const SorterSelect = ({ options, onChange }: SorterSelectProps) => {
   const [selectedValue, setSelectedValue] = useState<string>(options[0]?.value);
 
   return (
-    <div className='flex'>
+    <div className='flex ml-auto mb-5'>
       <Image
         src={Sort}
         width={16}
         height={16}
         alt='Иконка сортировки'
-        className='mr-4'
+        className='mr-4 ml-4'
       />
       <Select
         name='sortBy'

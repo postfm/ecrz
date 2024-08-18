@@ -10,11 +10,11 @@ export const MainSectionHeader = ({
   title,
 }: MainSectionHeader) => {
   return (
-    <p className='flex flex-wrap font-medium text-3xl relative'>
-      <span>{title}</span>
-      <span className='font-normal text-sm top-2 -right-32 text-gray-500'>
+    <>
+      <span className='font-medium text-3xl mr-4 mb-5'>{title}</span>
+      <span className='font-normal text-sm top-2 -right-32 text-gray-500 mb-5'>
         {resultsNumber} {inclineWord(resultsNumber)}
       </span>
-    </p>
+    </>
   );
 };
