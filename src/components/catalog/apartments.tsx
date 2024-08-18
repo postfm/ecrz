@@ -1,60 +1,27 @@
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/16/solid';
-import Link from 'next/link';
+'use client';
+
 import React from 'react';
+import { DropdownMenu } from './menu';
+import { useRouter } from 'next/navigation';
 
 export default function Apartments() {
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push('/apartments');
+  };
+
   return (
-    <Menu>
-      <MenuButton className='inline-flex items-center gap-2 font-medium text-sm hover:text-sky-600'>
-        Квартиры
-        <ChevronDownIcon className='size-4 fill-gray-400' />
-      </MenuButton>
-      <MenuItems
-        anchor='bottom'
-        className='bg-white shadow-3xl rounded-md'
-      >
-        <MenuItem>
-          <Link
-            className='block pt-3 pr-4 pb-3 pl-4'
-            href='/apartaments'
-          >
-            1-к. квартиры
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link
-            className='block pt-3 pr-4 pb-3 pl-4'
-            href='/apartaments'
-          >
-            2-к. квартиры
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link
-            className='block pt-3 pr-4 pb-3 pl-4'
-            href=''
-          >
-            3-к. квартиры
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link
-            className='block pt-3 pr-4 pb-3 pl-4'
-            href=''
-          >
-            4-к. квартиры
-          </Link>
-        </MenuItem>
-        <MenuItem>
-          <Link
-            className='block pt-3 pr-4 pb-3 pl-4'
-            href=''
-          >
-            Комнаты в квартирах
-          </Link>
-        </MenuItem>
-      </MenuItems>
-    </Menu>
+    <DropdownMenu
+      onSelect={onClick}
+      title='Квартиры'
+      options={[
+        { title: '1-к. квартиры', key: 'one-room' },
+        { title: '2-к. квартиры', key: 'two-room' },
+        { title: '3-к. квартиры', key: 'three-room' },
+        { title: '4-к. квартиры', key: 'four-room' },
+        { title: 'Комнаты в квартирах', key: 'shared-room' },
+      ]}
+    />
   );
 }
