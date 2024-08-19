@@ -103,7 +103,12 @@ export default function ChoiceFilterComponent({ filterProps, onSubmit }: ChoiceF
               className='rounded border-blue-600 border pt-4 pb-4 pl-14 pr-14 text-blue-600 hover:cursor-pointer hover:bg-blue-600 hover:text-white text-sm'
               type='reset'
               value='Сбросить'
-              onClick={() => setSelectedChoiceKeys([])}
+              onClick={(evt) => {
+                evt.preventDefault();
+                setSelectedChoiceKeys([])
+                onSubmit(filterProps.key, []);
+                toggle();
+              }}
             />
             <Input
               className='rounded border-blue-600 border bg-blue-600 hover:bg-blue-800 text-white pt-4 pb-4 pl-12 pr-12 hover:cursor-pointer text-sm'

@@ -12,17 +12,18 @@ interface RangeFilterProps {
   onSubmit: (filterKey: string, min?: string, max?: string) => void;
 }
 
-export default function RangeFilterComponent({ filterProps, unit, onSubmit }: RangeFilterProps) {
+export default function RangeFilterComponent({
+  filterProps,
+  unit,
+  onSubmit,
+}: RangeFilterProps) {
   const { ref, isOpen, toggle } = usePopupMenu<HTMLDivElement>();
 
   const [minValue, setMinValue] = useState<string>('');
   const [maxValue, setMaxValue] = useState<string>('');
 
   return (
-    <div
-      className='relative'
-      ref={ref}
-    >
+    <div className='relative' ref={ref}>
       <div className='border-r-2'>
         <button
           className='inline-flex items-center justify-between gap-2 font-medium hover:text-sky-600 p-6 w-60'
@@ -38,10 +39,14 @@ export default function RangeFilterComponent({ filterProps, unit, onSubmit }: Ra
             </div>
           ) : (
             <div className='flex flex-col items-start'>
-              <p className='font-normal text-xs text-gray-500 mb-2'>{filterProps.name}</p>
+              <p className='font-normal text-xs text-gray-500 mb-2'>
+                {filterProps.name}
+              </p>
               <div className='flex'>
                 {minValue} - {maxValue}
-                <span className='font-medium text-base text-gray-500 ml-2'>{unit}</span>
+                <span className='font-medium text-base text-gray-500 ml-2'>
+                  {unit}
+                </span>
               </div>
             </div>
           )}
@@ -108,9 +113,12 @@ export default function RangeFilterComponent({ filterProps, unit, onSubmit }: Ra
               className='rounded border-blue-600 border pt-4 pb-4 pl-14 pr-14 text-blue-600 hover:cursor-pointer hover:bg-blue-600 hover:text-white text-sm'
               type='reset'
               value='Сбросить'
-              onClick={() => {
+              onClick={(evt) => {
+                evt.preventDefault();
                 setMaxValue('');
                 setMinValue('');
+                onSubmit(filterProps.name, '', '');
+                toggle();
               }}
             />
             <Input

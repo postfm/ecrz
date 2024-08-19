@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { isEmpty, isUndefined, omitBy } from 'lodash';
 
 export function useFilters() {
   const [selectedFilters, setSelectedFilters] = useState({
@@ -20,7 +21,13 @@ export function useFilters() {
   const handleFilterChange = (key: string) => (value: string | string[]) =>
     setSelectedFilters((prev) => ({ ...prev, [key]: value }));
 
-  return { selectedFilters, handleFilterChange };
+  return {
+    selectedFilters: omitBy(
+      selectedFilters,
+      (v) => isUndefined(v) || isEmpty(v),
+    ),
+    handleFilterChange,
+  };
 }
 
 function getItemAmountPerPage() {
