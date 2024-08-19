@@ -22,7 +22,12 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
             footer ? 'text-xl' : 'text-sm'
           } ml-2 whitespace-nowrap`}
         >
-          +375 (29) 200-10-80
+          <a
+            href='tel:+375292001080'
+            className=' cursor-pointer hover:text-blue-600'
+          >
+            +375 (29) 200-10-80
+          </a>
         </p>
       </div>
       <div className='flex'>
@@ -34,7 +39,12 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
             footer ? 'text-xl' : 'text-sm'
           } ml-2 whitespace-nowrap`}
         >
-          8 (0162) 93-20-50
+          <a
+            href='tel:80162932050'
+            className=' cursor-pointer hover:text-blue-600'
+          >
+            8 (0162) 93-20-50
+          </a>
         </p>
       </div>
     </div>

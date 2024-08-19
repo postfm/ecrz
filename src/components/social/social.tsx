@@ -11,18 +11,21 @@ export default function Social() {
         width={36}
         height={36}
         alt='Вайбер'
+        className='cursor-pointer hover:opacity-85'
       />
       <Image
         src={watsapp}
         width={36}
         height={36}
         alt='Вайбер'
+        className='cursor-pointer hover:opacity-85'
       />
       <Image
         src={telegram}
         width={36}
         height={36}
         alt='Вайбер'
+        className='cursor-pointer hover:opacity-85'
       />
     </div>
   );
