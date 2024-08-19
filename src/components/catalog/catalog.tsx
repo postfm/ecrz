@@ -13,12 +13,9 @@ export default function Catalog() {
       <Grounds />
       <Commercial />
       <Legal />
-      <a
-        className='font-medium text-sm hover:text-sky-600'
-        href=''
-      >
+      <div className='font-medium text-sm hover:text-blue-600 cursor-pointer'>
         О компании
-      </a>
+      </div>
     </div>
   );
 }

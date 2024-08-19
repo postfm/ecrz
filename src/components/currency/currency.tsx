@@ -40,6 +40,7 @@ export default function Currency() {
           anchor='bottom'
           aria-label='Sorting items'
           className='bg-white shadow-3xl rounded-md p-4'
+          modal={false}
         >
           {CURRENCY_OPTIONS.map((item) => (
             <ListboxOption key={item} value={item}>

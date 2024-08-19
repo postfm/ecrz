@@ -17,10 +17,12 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
 }) => {
   return (
     <Menu>
-      <MenuButton className='inline-flex items-center gap-2 font-medium text-sm hover:text-sky-600'>
-        {({ active }) => (
+      <MenuButton className='inline-flex items-center gap-2 font-medium text-sm'>
+        {({ active, hover }) => (
           <>
-            {title}
+          <span style={{ color: hover ? 'rgb(30, 136, 229)' : 'inherit' }}>
+              {title}
+            </span>
             {active ? (
               <ChevronUpIcon className='size-4 fill-gray-400' />
             ) : (
@@ -32,6 +34,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
       <MenuItems
         anchor='bottom'
         className='bg-white shadow-3xl rounded-md  p-4'
+        modal={false}
       >
         {options.map((option) => (
           <MenuItem key={option.key}>

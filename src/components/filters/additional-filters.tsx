@@ -13,7 +13,11 @@ export default function AdditionalFilters() {
         <AdjustmentsHorizontalIcon className='size-4' />
         Доп. фильты
       </MenuButton>
-      <MenuItems anchor='bottom' className='bg-white shadow-3xl rounded-md'>
+      <MenuItems
+        anchor='bottom'
+        className='bg-white shadow-3xl rounded-md'
+        modal={false}
+      >
         <MenuItem>
           <Link className='block pt-3 pr-4 pb-3 pl-4' href='/apartaments'>
             1-к. квартиры

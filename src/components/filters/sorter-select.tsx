@@ -50,6 +50,7 @@ export const SorterSelect = ({ options, onChange }: SorterSelectProps) => {
         anchor='bottom'
         aria-label='Sorting items'
         className='bg-white shadow-3xl rounded-md p-4'
+        modal={false}
       >
         {options.map((item) => (
           <ListboxOption key={item.value} value={item.value}>
