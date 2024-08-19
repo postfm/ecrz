@@ -8,7 +8,7 @@ export default function Apartments() {
   const router = useRouter();
 
   const onClick = () => {
-    router.push('/apartments');
+    router.push('/apartaments');
   };
 
   return (
