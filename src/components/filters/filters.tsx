@@ -20,13 +20,13 @@ interface FiltersProps {
 export default function Filters({ type, onFilterChange, setRentalType }: FiltersProps) {
   const { isPending, isError, data, error } = useQuery({
     queryKey: [type],
-    queryFn: async () => (await getFilters(type)).data,
+    queryFn: async () => (await getFilters(type)).data
   });
 
   if (isPending) {
     return (
       <Spinner
-        className='h-8 w-8 mx-auto'
+        className='h-8 w-8 mx-auto mb-5'
         color='blue'
         onPointerEnterCapture={undefined}
         onPointerLeaveCapture={undefined}
@@ -35,7 +35,7 @@ export default function Filters({ type, onFilterChange, setRentalType }: Filters
   }
 
   if (isError) {
-    return <span>Error: {error.message}</span>;
+    return <div>Error: {error.message}</div>;
   }
 
   return (
