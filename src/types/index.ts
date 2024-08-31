@@ -66,10 +66,10 @@ export const TypeSelectOptions = [
 ];
 
 export const SortOptions = [
-  { value: '-price', label: 'Сначала дорогие' },
   { value: 'price', label: 'Сначала дешевые' },
-  { value: '-totalArea', label: 'Площадь по убыванию' },
+  { value: '-price', label: 'Сначала дорогие' },
   { value: 'totalArea', label: 'Площадь по возрастанию' },
+  { value: '-totalArea', label: 'Площадь по убыванию' },
 ];
 
 export interface ResponseType<T> {
