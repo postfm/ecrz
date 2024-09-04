@@ -9,10 +9,18 @@ export default function Address() {
   const { ref, isOpen, toggle } = usePopupMenu<HTMLDivElement>();
 
   return (
-    <div className='flex justify-between align-baseline sm:hidden' ref={ref}>
-      <Image src={mapPoint} width={16} height={16} alt='Маркер карты' />
-      <div className='flex flex-col ml-3'>
-        <p className='text-sm text-nowrap'>Брест, ул. Гоголя 2, офис 1</p>
+    <div
+      className='flex justify-between align-baseline w-52 h-10 sm:hidden'
+      ref={ref}
+    >
+      <Image
+        src={mapPoint}
+        width={16}
+        height={16}
+        alt='Маркер карты'
+      />
+      <div className='flex flex-col ml-3 w-44 h-10'>
+        <p className='text-sm text-nowrap  w-44 h-10'>Брест, ул. Гоголя 2, офис 1</p>
         <button
           className='font-medium text-sm hover:text-blue-600 text-left'
           onClick={() => toggle()}
@@ -41,7 +49,12 @@ export default function Address() {
           />
         </svg>
 
-        <Image src={Map} width={1082} height={588} alt='map' />
+        <Image
+          src={Map}
+          width={1082}
+          height={588}
+          alt='map'
+        />
       </div>
     </div>
   );
