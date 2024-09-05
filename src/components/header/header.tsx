@@ -13,7 +13,7 @@ import MenuButton from './menu-button';
 export default function Header() {
   return (
     <div className='pl-8 pr-8 bg-white'>
-      <header className='w-full flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline items-center md:hidden'>
+      <header className='container flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline items-center md:hidden'>
         <Logo />
         <Address />
         <Social />

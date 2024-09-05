@@ -15,7 +15,7 @@ interface CardProps {
 
 export default function Card({ property, rentalType }: CardProps) {
   return (
-    <div className='group flex flex-col w-[308px] h-full rounded-xl bg-white hover:shadow-3xl'>
+    <div className='group flex flex-col w-[308px] lg:w-1/2 h-full rounded-xl bg-white hover:shadow-3xl'>
       <div className='w-full h-[214px]'>
         <Carousel
           loop={true}

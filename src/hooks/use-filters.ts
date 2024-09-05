@@ -4,7 +4,7 @@ import { isEmpty, isUndefined, omitBy } from 'lodash';
 export function useFilters() {
   const [selectedFilters, setSelectedFilters] = useState({
     sortBy: 'price',
-    limit: '12',
+    limit: getItemAmountPerPage(),
   } as Record<string, string | string[]>);
 
   useEffect(() => {
