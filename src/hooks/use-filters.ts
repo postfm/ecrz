@@ -4,7 +4,7 @@ import { isEmpty, isUndefined, omitBy } from 'lodash';
 export function useFilters() {
   const [selectedFilters, setSelectedFilters] = useState({
     sortBy: 'price',
-    limit: '12',
+    limit: getItemAmountPerPage(),
   } as Record<string, string | string[]>);
 
   useEffect(() => {
@@ -22,10 +22,7 @@ export function useFilters() {
     setSelectedFilters((prev) => ({ ...prev, [key]: value }));
 
   return {
-    selectedFilters: omitBy(
-      selectedFilters,
-      (v) => isUndefined(v) || isEmpty(v),
-    ),
+    selectedFilters: omitBy(selectedFilters, (v) => isUndefined(v) || isEmpty(v)),
     handleFilterChange,
   };
 }
@@ -34,7 +31,7 @@ function getItemAmountPerPage() {
   const screenWidth = window.innerWidth;
   let itemPerPage = 12;
   if (screenWidth <= 1024) {
-    itemPerPage = 8;
+    itemPerPage = 4;
   }
   if (screenWidth <= 640) {
     itemPerPage = 4;
