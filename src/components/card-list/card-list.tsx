@@ -39,14 +39,19 @@ export default function CardList({
 
   return (
     <>
-      <div className='grid grid-cols-4 md:grid-cols-1 md:grid-rows-4 lg:grid-cols-2 gap-4 justify-center'>
+      <div className='flex flex-wrap  gap-4 justify-center'>
         {data?.entities.map((item) => {
           return (
-            <Card
+            <div
+              className='basis-[22%] lg:basis-[48%] md:basis-[90%]'
               key={item.id}
-              property={item}
-              rentalType={rentalType}
-            />
+            >
+              <Card
+                key={item.id}
+                property={item}
+                rentalType={rentalType}
+              />
+            </div>
           );
         })}
       </div>
