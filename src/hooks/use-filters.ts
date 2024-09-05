@@ -4,7 +4,7 @@ import { isEmpty, isUndefined, omitBy } from 'lodash';
 export function useFilters() {
   const [selectedFilters, setSelectedFilters] = useState({
     sortBy: 'price',
-    limit: getItemAmountPerPage(),
+    limit: '12',
   } as Record<string, string | string[]>);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function getItemAmountPerPage() {
   if (screenWidth <= 1024) {
     itemPerPage = 4;
   }
-  if (screenWidth <= 640) {
+  if (screenWidth <= 767) {
     itemPerPage = 4;
   }
   return String(itemPerPage);
