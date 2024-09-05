@@ -20,7 +20,7 @@ export default function Page() {
         <Breadcrumbs
           links={[
             { link: '/', label: 'Главная' },
-            { link: '/apartaments', label: 'Купить 1-комнатную квартиру' },
+            { link: '/apartments', label: 'Купить 1-комнатную квартиру' },
           ]}
         />
         <div className='flex flex-wrap justify-between items-center'>

@@ -20,9 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang='ru'>
-        <body className={onest.className}>
-          <main className='continer w-[1366px] mx-auto'>
+      <html
+        lang='ru'
+        className='h-full'
+      >
+        <body className={`${onest.className} h-full`}>
+          <main className='w-[1366px] mx-auto h-full flex flex-col'>
             <Header />
             {children}
             <Footer />

@@ -8,7 +8,7 @@ import Social from '../social/social';
 
 export default function Footer() {
   return (
-    <div className='flex flex-wrap justify-between align-top p-8 bg-white rounded-2xl w-full mt-auto'>
+    <div className='flex flex-wrap justify-between align-top p-8 bg-white rounded-2xl w-full mt-auto text-sm text-nowrap'>
       <div className='flex flex-col items-start'>
         <div className='mb-6'>
           <Logo />

@@ -20,7 +20,7 @@ export default function Address() {
         alt='Маркер карты'
       />
       <div className='flex flex-col ml-3 w-44 h-10'>
-        <p className='text-sm text-nowrap  w-44 h-10'>Брест, ул. Гоголя 2, офис 1</p>
+        <p className='w-44 h-10'>Брест, ул. Гоголя 2, офис 1</p>
         <button
           className='font-medium text-sm hover:text-blue-600 text-left'
           onClick={() => toggle()}

@@ -19,27 +19,42 @@ export default function AdditionalFilters() {
         modal={false}
       >
         <MenuItem>
-          <Link className='block pt-3 pr-4 pb-3 pl-4' href='/apartaments'>
+          <Link
+            className='block pt-3 pr-4 pb-3 pl-4'
+            href='/'
+          >
             1-к. квартиры
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link className='block pt-3 pr-4 pb-3 pl-4' href='/apartaments'>
+          <Link
+            className='block pt-3 pr-4 pb-3 pl-4'
+            href='/apartments'
+          >
             2-к. квартиры
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link className='block pt-3 pr-4 pb-3 pl-4' href=''>
+          <Link
+            className='block pt-3 pr-4 pb-3 pl-4'
+            href=''
+          >
             3-к. квартиры
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link className='block pt-3 pr-4 pb-3 pl-4' href=''>
+          <Link
+            className='block pt-3 pr-4 pb-3 pl-4'
+            href=''
+          >
             4-к. квартиры
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link className='block pt-3 pr-4 pb-3 pl-4' href=''>
+          <Link
+            className='block pt-3 pr-4 pb-3 pl-4'
+            href=''
+          >
             Комнаты в квартирах
           </Link>
         </MenuItem>
