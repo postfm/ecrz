@@ -1,12 +1,7 @@
 'use client';
 
 import React from 'react';
-import {
-  isChoiceFilter,
-  isRangeFilter,
-  RentalType,
-  TypeSelectOptions,
-} from '@/types';
+import { isChoiceFilter, isRangeFilter, RentalType, TypeSelectOptions } from '@/types';
 import ChoiceFilterComponent from './choice-filter';
 import RangeFilterComponent from './range-filter';
 import { getFilterUnitByName } from '@/utils/getFilterUnitByName';
@@ -22,11 +17,7 @@ interface FiltersProps {
   setRentalType: (value: RentalType) => void;
 }
 
-export default function Filters({
-  type,
-  onFilterChange,
-  setRentalType,
-}: FiltersProps) {
+export default function Filters({ type, onFilterChange, setRentalType }: FiltersProps) {
   const { isPending, isError, data, error } = useQuery({
     queryKey: [type],
     queryFn: async () => (await getFilters(type)).data,
@@ -48,7 +39,7 @@ export default function Filters({
   }
 
   return (
-    <div className='flex flex-wrap mb-4 bg-white rounded'>
+    <div className='flex flex-wrap mb-4 bg-white rounded lg:hidden'>
       <SelectFilter
         options={TypeSelectOptions}
         initialOption={TypeSelectOptions[0]}
@@ -88,9 +79,7 @@ export default function Filters({
       })}
       <div className='flex justify-center grow items-center'>
         <AdditionalFilters />
-        <button className='w-24 h-14 bg-black text-white rounded'>
-          Показать
-        </button>
+        <button className='w-24 h-14 bg-black text-white rounded'>Показать</button>
       </div>
     </div>
   );

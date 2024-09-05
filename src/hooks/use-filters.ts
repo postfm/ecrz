@@ -36,6 +36,5 @@ function getItemAmountPerPage() {
   if (screenWidth <= 767) {
     itemPerPage = 4;
   }
-  console.log(screenWidth);
   return String(itemPerPage);
 }

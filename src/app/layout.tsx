@@ -25,7 +25,7 @@ export default function RootLayout({
         className='h-full text-sm'
       >
         <body className={`${onest.className} h-full`}>
-          <main className=' w-[1366px] mx-auto h-full flex flex-col'>
+          <main className=' w-[1366px] mx-auto h-full flex flex-col md:container lg:container'>
             <Header />
             {children}
             <Footer />
