@@ -20,10 +20,6 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <meta
-        name='viewport'
-        content='width=device-width, initial-scale=1.0'
-      />
       <html
         lang='ru'
         className='h-full text-sm'
