@@ -5,7 +5,7 @@ import telegram from '../../../public/telegram.svg';
 
 export default function Social() {
   return (
-    <div className='flex justify-between w-28 sm:hidden'>
+    <div className='flex justify-between w-28'>
       <Image
         src={viber}
         width={36}

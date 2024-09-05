@@ -10,7 +10,7 @@ export default function Address() {
 
   return (
     <div
-      className='flex justify-between align-baseline w-52 h-10 sm:hidden'
+      className='flex justify-between align-baseline'
       ref={ref}
     >
       <Image
@@ -20,9 +20,9 @@ export default function Address() {
         alt='Маркер карты'
       />
       <div className='flex flex-col ml-3 w-44 h-10'>
-        <p className='w-44 h-10'>Брест, ул. Гоголя 2, офис 1</p>
+        <p className='text-nowrap'>Брест, ул. Гоголя 2, офис 1</p>
         <button
-          className='font-medium text-sm hover:text-blue-600 text-left'
+          className='font-medium hover:text-blue-600 text-left'
           onClick={() => toggle()}
         >
           Посмотреть на карте

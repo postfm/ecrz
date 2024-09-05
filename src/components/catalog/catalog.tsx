@@ -7,15 +7,13 @@ import Legal from './legal';
 
 export default function Catalog() {
   return (
-    <div className='flex justify-between max-2xl:w-[1302px] pt-4 pb-4 bg-white sm:flex-col'>
+    <div className='flex justify-between max-2xl:w-[1302px] pt-4 pb-4 bg-white md:flex-col md:text-lg'>
       <Apartments />
       <Houses />
       <Grounds />
       <Commercial />
       <Legal />
-      <div className='font-medium text-sm hover:text-blue-600 cursor-pointer'>
-        О компании
-      </div>
+      <div className='font-medium text-sm hover:text-blue-600 cursor-pointer'>О компании</div>
     </div>
   );
 }

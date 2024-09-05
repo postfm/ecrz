@@ -8,20 +8,17 @@ interface PhoneProps {
 
 const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
   return (
-    <div
-      className={`flex flex-col ${
-        footer ? 'items-end' : 'items-start'
-      } sm:hidden`}
-    >
+    <div className={`flex flex-col ${footer ? 'items-end' : 'items-start'} `}>
       <div className='flex'>
         {!footer && (
-          <Image src={phone} width={12} height={16} alt='Иконка телефона' />
+          <Image
+            src={phone}
+            width={12}
+            height={16}
+            alt='Иконка телефона'
+          />
         )}
-        <p
-          className={`font-normal ${
-            footer ? 'text-xl' : 'text-sm'
-          } ml-2 whitespace-nowrap`}
-        >
+        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2 whitespace-nowrap`}>
           <a
             href='tel:+375292001080'
             className=' cursor-pointer hover:text-blue-600'
@@ -32,13 +29,14 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
       </div>
       <div className='flex'>
         {!footer && (
-          <Image src={phone} width={12} height={16} alt='Иконка телефона' />
+          <Image
+            src={phone}
+            width={12}
+            height={16}
+            alt='Иконка телефона'
+          />
         )}
-        <p
-          className={`font-normal ${
-            footer ? 'text-xl' : 'text-sm'
-          } ml-2 whitespace-nowrap`}
-        >
+        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2 whitespace-nowrap`}>
           <a
             href='tel:80162932050'
             className=' cursor-pointer hover:text-blue-600'

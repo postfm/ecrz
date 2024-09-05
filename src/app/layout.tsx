@@ -22,7 +22,7 @@ export default function RootLayout({
     <ReactQueryClientProvider>
       <html
         lang='ru'
-        className='h-full'
+        className='h-full text-sm'
       >
         <body className={`${onest.className} h-full`}>
           <main className='w-[1366px] mx-auto h-full flex flex-col'>

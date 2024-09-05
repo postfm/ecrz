@@ -20,14 +20,12 @@ export default function Card({ property, rentalType }: CardProps) {
         <Carousel
           loop={true}
           navigation={({ setActiveIndex, activeIndex, length }) => (
-            <div className='absolute bottom-4 left-2/4 z-50 group-hover:flex -translate-x-2/4 gap-2 hidden z-0'>
+            <div className='absolute bottom-4 left-2/4 z-50 group-hover:flex -translate-x-2/4 gap-2 hidden'>
               {new Array(length).fill('').map((_, i) => (
                 <span
                   key={i}
                   className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                    activeIndex === i
-                      ? 'w-[28px] h-1 bg-blue-600'
-                      : 'w-[28px] h-1 bg-white/50'
+                    activeIndex === i ? 'w-[28px] h-1 bg-blue-600' : 'w-[28px] h-1 bg-white/50'
                   }`}
                   onClick={() => setActiveIndex(i)}
                 />
@@ -104,29 +102,36 @@ export default function Card({ property, rentalType }: CardProps) {
       <div className='flex flex-col w-full h-auto p-[18px] pb-6'>
         <div className='flex flex-col items-start pb-4 border-b-2'>
           {rentalType === RentalType.Apartment && (
-            <div className='font-medium text-xs text-gray-600'>
-              {property.roomType}
-            </div>
+            <div className='font-medium text-xs text-gray-600'>{property.roomType}</div>
           )}
 
-          <div className='font-medium text-lg' style={{ color: '#0380EA' }}>
+          <div
+            className='font-medium text-lg'
+            style={{ color: '#0380EA' }}
+          >
             {property.name}
           </div>
-          <div className='font-normal text-sm text-gray-800'>
-            {property.location.fullAddress}
-          </div>
+          <div className='font-normal text-gray-800'>{property.location.fullAddress}</div>
         </div>
         <div className='flex flex-col items-start'>
           <div className='flex align-bottom mt-4 mb-4 font-normal text-sm text-gray-800'>
             {rentalType !== RentalType.Apartment && (
               <div className='flex mr-4'>
-                <Image src={Square} alt='square' className='mr-1' />
+                <Image
+                  src={Square}
+                  alt='square'
+                  className='mr-1'
+                />
                 <div>{property.totalArea} сот</div>
               </div>
             )}
 
             <div className='flex mr-4'>
-              <Image src={Fridge} alt='fridge' className='mr-1' />
+              <Image
+                src={Fridge}
+                alt='fridge'
+                className='mr-1'
+              />
               <div>
                 {property.kitchenArea}м<sup>2</sup>
               </div>
@@ -134,13 +139,21 @@ export default function Card({ property, rentalType }: CardProps) {
             {rentalType === RentalType.Apartment && (
               <>
                 <div className='flex mr-4'>
-                  <Image src={Bed} alt='bed' className='mr-1' />
+                  <Image
+                    src={Bed}
+                    alt='bed'
+                    className='mr-1'
+                  />
                   <div>
                     {property.livingArea}м<sup>2</sup>
                   </div>
                 </div>
                 <div className='flex mr-4'>
-                  <Image src={Tabler} alt='tabler' className='mr-1' />
+                  <Image
+                    src={Tabler}
+                    alt='tabler'
+                    className='mr-1'
+                  />
                   <div>
                     {property.floor}/{property.floors} этаж
                   </div>
