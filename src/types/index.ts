@@ -104,3 +104,8 @@ export interface PropertyEntity {
     url: string;
   }[];
 }
+
+export const PageType = {
+  MainPage: 'mainPage',
+  OthePage: 'otherPage',
+};

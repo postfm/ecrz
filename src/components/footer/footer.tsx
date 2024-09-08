@@ -1,3 +1,5 @@
+'use client';
+
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import Address from '../address/address';
 import Call from '../call/call';
@@ -6,7 +8,11 @@ import Phone from '../phone/phone';
 import Sale from '../sale/sale';
 import Social from '../social/social';
 
-export default function Footer() {
+interface FooterProps {
+  pageType: string;
+}
+
+export default function Footer({ pageType }: FooterProps) {
   return (
     <div className='bg-white rounded-2xl container mt-auto p-8 lg:w-full'>
       <footer className='flex flex-wrap justify-between align-top text-sm text-nowrap  md:flex-col'>

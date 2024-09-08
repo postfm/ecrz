@@ -9,10 +9,15 @@ import Sale from '../sale/sale';
 import Social from '../social/social';
 import CloseButton from './close-button';
 import MenuButton from './menu-button';
+import { PageType } from '@/types';
 
-export default function Header() {
+interface HeaderProps {
+  pageType: string;
+}
+
+export default function Header({ pageType }: HeaderProps) {
   return (
-    <div className='pl-8 pr-8 bg-white'>
+    <div className={`pl-8 pr-8 ${pageType === PageType.MainPage ? 'bg-inherit' : 'bg-white'}`}>
       <header className='container flex justify-between pt-3 gap-3 border-b-2 pb-3 align-baseline items-center md:hidden lg:hidden'>
         <Logo />
         <Address />
@@ -28,7 +33,7 @@ export default function Header() {
         <CloseButton />
         <MenuButton />
       </header>
-      <Catalog />
+      <Catalog pageType={pageType} />
     </div>
   );
 }
