@@ -18,7 +18,11 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
             alt='Иконка телефона'
           />
         )}
-        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2 whitespace-nowrap`}>
+        <p
+          className={`font-normal ${
+            footer ? 'text-xl lg:text-sm' : 'text-sm'
+          } ml-2 whitespace-nowrap`}
+        >
           <a
             href='tel:+375292001080'
             className=' cursor-pointer hover:text-blue-600'
@@ -36,7 +40,11 @@ const Phone: React.FC<PhoneProps> = ({ footer = false }) => {
             alt='Иконка телефона'
           />
         )}
-        <p className={`font-normal ${footer ? 'text-xl' : 'text-sm'} ml-2 whitespace-nowrap`}>
+        <p
+          className={`font-normal ${
+            footer ? 'text-xl lg:text-sm' : 'text-sm'
+          } ml-2 whitespace-nowrap`}
+        >
           <a
             href='tel:80162932050'
             className=' cursor-pointer hover:text-blue-600'

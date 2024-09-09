@@ -14,9 +14,9 @@ interface FooterProps {
 
 export default function Footer({ pageType }: FooterProps) {
   return (
-    <div className='container p-8 mt-auto'>
-      <div className='bg-white rounded-2xl p-8   lg:container'>
-        <footer className='flex flex-wrap justify-between align-top text-sm text-nowrap  md:flex-col'>
+    <div className='container p-8 mt-auto text-sm lg:text-[10px] lg:container '>
+      <div className='bg-white rounded-2xl p-8'>
+        <footer className='flex flex-wrap justify-between align-top text-nowrap  md:flex-col md:place-content-center'>
           <div className='flex flex-col items-start'>
             <div className='mb-6'>
               <Logo />
@@ -29,15 +29,15 @@ export default function Footer({ pageType }: FooterProps) {
             </div>
           </div>
           <div className='flex flex-col items-start'>
-            <h2 className='font-medium text-sm mb-4'>Недвижимость</h2>
+            <h2 className='font-medium  mb-4'>Недвижимость</h2>
             <Popover>
-              <PopoverButton className='block text-sm font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
+              <PopoverButton className='block  font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
                 Квартиры
               </PopoverButton>
               <PopoverPanel
                 transition
                 anchor='top'
-                className='rounded-xl bg-gray-50 text-sm transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
+                className='rounded-xl bg-gray-50  transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
               >
                 <div className='p-3 shadow-3xl'>
                   <a
@@ -74,13 +74,13 @@ export default function Footer({ pageType }: FooterProps) {
               </PopoverPanel>
             </Popover>
             <Popover>
-              <PopoverButton className='block text-sm font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
+              <PopoverButton className='block font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
                 Дома
               </PopoverButton>
               <PopoverPanel
                 transition
                 anchor='top'
-                className='rounded-xl bg-gray-50 text-sm transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
+                className='rounded-xl bg-gray-50 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
               >
                 <div className='p-3 shadow-3xl'>
                   <a
@@ -105,13 +105,13 @@ export default function Footer({ pageType }: FooterProps) {
               </PopoverPanel>
             </Popover>
             <Popover>
-              <PopoverButton className='block text-sm font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
+              <PopoverButton className='block font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
                 Участки
               </PopoverButton>
               <PopoverPanel
                 transition
                 anchor='top'
-                className='rounded-xl bg-gray-50 text-sm transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
+                className='rounded-xl bg-gray-50 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
               >
                 <div className='p-3 shadow-3xl'>
                   <a
@@ -148,13 +148,13 @@ export default function Footer({ pageType }: FooterProps) {
               </PopoverPanel>
             </Popover>
             <Popover>
-              <PopoverButton className='block text-sm font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
+              <PopoverButton className='block font-normal text-gray-500 focus:outline-none data-[active]:text-gray-700 data-[hover]:text-gray-700 data-[focus]:outline-1 data-[focus]:outline-white mb-4'>
                 Коммерческая
               </PopoverButton>
               <PopoverPanel
                 transition
                 anchor='top'
-                className='rounded-xl bg-gray-50 text-sm transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
+                className='rounded-xl bg-gray-50 transition duration-200 ease-in-out [--anchor-gap:var(--spacing-5)] data-[closed]:-translate-y-1 data-[closed]:opacity-0'
               >
                 <div className='p-3 shadow-3xl'>
                   <a
@@ -186,27 +186,27 @@ export default function Footer({ pageType }: FooterProps) {
             </Popover>
           </div>
           <div className='flex flex-col items-start'>
-            <h2 className='font-medium text-sm mb-4'>Юридические услуги</h2>
+            <h2 className='font-medium mb-4'>Юридические услуги</h2>
             <a
-              className='font-normal text-sm text-gray-500 hover:text-gray-700 mb-4'
+              className='font-normal  text-gray-500 hover:text-gray-700 mb-4'
               href=''
             >
               Продажа недвижимости
             </a>
             <a
-              className='font-normal text-sm text-gray-500 hover:text-gray-700 mb-4'
+              className='font-normal text-gray-500 hover:text-gray-700 mb-4'
               href=''
             >
               Помощь в оформлении кредита
             </a>
             <a
-              className='font-normal text-sm text-gray-500 hover:text-gray-700 mb-4'
+              className='font-normal text-gray-500 hover:text-gray-700 mb-4'
               href=''
             >
               Оформление тех. документации
             </a>
             <a
-              className='font-normal text-sm text-gray-500 hover:text-gray-700 mb-4'
+              className='font-normal text-gray-500 hover:text-gray-700 mb-4'
               href=''
             >
               Вывод в нежилой фонд
@@ -214,19 +214,19 @@ export default function Footer({ pageType }: FooterProps) {
           </div>
           <div className='flex flex-col items-start'>
             <a
-              className='font-medium text-sm hover:text-sky-600 mb-6'
+              className='font-medium hover:text-sky-600 mb-6'
               href=''
             >
               О компании
             </a>
             <a
-              className='font-medium text-sm hover:text-sky-600 mb-6'
+              className='font-medium hover:text-sky-600 mb-6'
               href=''
             >
               Контакты
             </a>
             <a
-              className='font-medium text-sm hover:text-sky-600 mb-6'
+              className='font-medium hover:text-sky-600 mb-6'
               href=''
             >
               Трудоустройство
@@ -244,10 +244,10 @@ export default function Footer({ pageType }: FooterProps) {
             </div>
           </div>
         </footer>
-        <div>
-          <p className='font-normal text-sm mb-1'>2023 © Единый Центр Реализации Жилья</p>
+        <div className='md:container md:mx-auto'>
+          <p className='font-normal mb-1'>2023 © Единый Центр Реализации Жилья</p>
           <a
-            className='font-normal text-sm hover:text-sky-600'
+            className='font-normal hover:text-sky-600'
             href=''
           >
             Политика Конфиденциальности
